@@ -42,16 +42,23 @@
         <div class="home-content">
             <h3>Olá, Eu sou</h3>
             <h1>Gabriel Arezi</h1>
+            <h2>24 Anos, Moro em Cariacica,Espirito Santo.</h2>
             <p>
                 Seja muito bem vindo ao meu portifólio, aqui mostrarei um pouco da minha experiência e projetos.</p>
             <p>  Atualmente estou cursando Análise e Desenvolvimento de Sistemas e estou sempre buscando conhecimento e aprimoramento.  </p>
+            <p> Estou sempre aberto a novos desafios e oportunidades de aprendizado. </p>
 
             <div class="social-media">
+                
                 <a href="https://www.instagram.com/g.arezi/"><i class='bx bxl-instagram-alt'></i></a>
                 <a href="https://github.com/g-arezi"><i class='bx bxl-github'></i></a>
             </div>
 
-           <a href="https://www.linkedin.com/in/gabriel-arezi/" class="btn">Meu Linkedin</a>
+           <a href="https://www.linkedin.com/in/gabriel-arezi/" class="btn">Meu Linkedin</a>    
+           <a href="https://wa.me/5527992963857?text=Ol%C3%A1%2C+Gabriel+gostaria+de+saber+mais+sobre+seus+servi%C3%A7os%21" target="_blank" class="btn" style="display:inline-block;">
+           WhatsApp
+             </a>
+            
         </div>
 
         <div class="profession-container">
@@ -67,6 +74,10 @@
                 <div class="profession" style="--i:2;">
                     <i class='bx bx-support'></i>
                     <h3>Suporte Técnico</h3>
+                </div>
+                <div class="profession" style="--i:3;">
+                    <i class='bx bx-network-chart'></i>
+                    <h3>Infraestrutura de Redes</h3>
                 </div>
 
                 <div class="box"></div>
@@ -137,27 +148,59 @@
         </div>
     </div>
     -->
-    <!-- 
-    > isso é o formulario de contato, mas não está funcionando ainda, então comentei para não dar erro no site 
-    
-    <section class="contact" id="contact">
-        <h2 class="heading">Meu <span>Contato</span></h2>
 
-        <form action="#">
+<!-- isso é o formulario de contato, mas não está funcionando ainda, então comentei para não dar erro no site -->
+ <!--  <section class="contact" id="contact">
+        <h2 class="heading">Entre em <span>Contato</span></h2>
+        <form id="contactForm">
             <div class="input-box">
-                <input type="text" placeholder="Nome Completo">
-                <input type="email" placeholder="Seu melhor email">
+                <input type="text" id="name" name="name" placeholder="Seu Nome" required>
+                <input type="email" id="email" name="email" placeholder="Seu Email" required>
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Numero de Telefone">
-                <input type="text" placeholder="Assunto">
-                <input type="text" placeholder="Assunto em Questão">
+                <input type="text" id="subject" name="subject" placeholder="Assunto" required>
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Sua Mensagem"></textarea>
-            <input type="submit" value="Enviar" class="btn">
+            <textarea id="message" name="message" cols="30" rows="8" placeholder="Sua Mensagem" required></textarea>
+            <button type="submit" class="btn">Enviar Mensagem</button>
+            <p id="formStatus"></p>
         </form>
     </section>
-    -->
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const data = {
+            nome: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            assunto: document.getElementById('subject').value,
+            mensagem: document.getElementById('message').value,
+            dataEnvio: new Date().toISOString()
+        };
+
+        try {
+            const response = await fetch('save_contact.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                document.getElementById('formStatus').textContent = "Mensagem enviada com sucesso!";
+                this.reset();
+            } else {
+                document.getElementById('formStatus').textContent = "Erro ao enviar mensagem.";
+            }
+        } catch (error) {
+            document.getElementById('formStatus').textContent = "Erro ao enviar mensagem.";
+        }
+    });
+    </script>
+
+--> 
+
+<!-- Botão WhatsApp -->
+
 
     <section class="services" id="services">
         <h2 class="heading">Meus <span>Serviços</span></h2>
