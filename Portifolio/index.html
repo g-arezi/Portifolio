@@ -28,7 +28,6 @@
             <a href="#sobre-mim">Sobre mim</a>
             <a href="#recomendacoes">Recomendacões</a>
             <a href="#services">Serviços</a>
-            <a href="#comments">Comentários</a>
             
             <!--<a href="#contact">Contato</a> -->
         </nav>
@@ -113,7 +112,8 @@
                 Além disso, tenho experiência em design gráfico e UX/UI, utilizando ferramentas como Figma, Photoshop e Illustrator. 
                 Também tenho experiência em WordPress, onde desenvolvi sites responsivos e funcionais, utilizando as melhores práticas de desenvolvimento.
             </p>
-        </section>
+    </section>
+    
     <section class="recomendacoes" id ="recomendacoes">
     
          <!-- testimonial design -->
@@ -147,61 +147,7 @@
                 <div class="swiper-pagination"></div>
             </div>
         </div>
-    </div>
-    -->
-
-<!-- isso é o formulario de contato, mas não está funcionando ainda, então comentei para não dar erro no site -->
- <!--  <section class="contact" id="contact">
-        <h2 class="heading">Entre em <span>Contato</span></h2>
-        <form id="contactForm">
-            <div class="input-box">
-                <input type="text" id="name" name="name" placeholder="Seu Nome" required>
-                <input type="email" id="email" name="email" placeholder="Seu Email" required>
-            </div>
-            <div class="input-box">
-                <input type="text" id="subject" name="subject" placeholder="Assunto" required>
-            </div>
-            <textarea id="message" name="message" cols="30" rows="8" placeholder="Sua Mensagem" required></textarea>
-            <button type="submit" class="btn">Enviar Mensagem</button>
-            <p id="formStatus"></p>
-        </form>
-    </section>
-    <script>
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const data = {
-            nome: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            assunto: document.getElementById('subject').value,
-            mensagem: document.getElementById('message').value,
-            dataEnvio: new Date().toISOString()
-        };
-
-        try {
-            const response = await fetch('save_contact.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (response.ok) {
-                document.getElementById('formStatus').textContent = "Mensagem enviada com sucesso!";
-                this.reset();
-            } else {
-                document.getElementById('formStatus').textContent = "Erro ao enviar mensagem.";
-            }
-        } catch (error) {
-            document.getElementById('formStatus').textContent = "Erro ao enviar mensagem.";
-        }
-    });
-    </script>
-
---> 
-
-<!-- Botão WhatsApp -->
-
+    </div>  -->
 
     <section class="services" id="services">
         <h2 class="heading">Meus <span>Serviços</span></h2>
