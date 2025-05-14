@@ -230,6 +230,73 @@
             </div>
         </div>
     </section>
+    <!-- aba de comentários -->
+    <section>
+        <div class="comments-section">
+            <h2 class="heading"> Aba <span>de comentários</span></h2>
+            <h2>Deixe seu comentário</h2>
+            <p>Se você gostou do meu portfólio ou tem alguma sugestão, deixe seu comentário abaixo!</p>
+            <form id="commentForm">
+                <input type="text" id="username" placeholder="Seu nome" required>
+                <textarea id="commentText" placeholder="Seu comentário" required></textarea>
+                <button type="submit" class="btn">Comentar</button>
+            </form>
+            <div id="commentsList"></div>
+        </div>
+        <script>
+        // Carrega comentários do localStorage
+        function loadComments() {
+            const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+            const commentsList = document.getElementById('commentsList');
+            commentsList.innerHTML = '';
+            comments.forEach((c, idx) => {
+                const div = document.createElement('div');
+                div.className = 'comment';
+                div.innerHTML = `<strong>${c.username}</strong> <span style="font-size:0.8em;color:#888;">${c.date}</span><br>${c.text}
+                <button class="delete-comment" data-idx="${idx}" style="float:right;background:#e74c3c;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;">Excluir</button>`;
+                commentsList.appendChild(div);
+            });
+            // Adiciona evento para botões de exclusão
+            document.querySelectorAll('.delete-comment').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    deleteComment(this.getAttribute('data-idx'));
+                });
+            });
+        }
+        function deleteComment(idx) {
+            let comments = JSON.parse(localStorage.getItem('comments') || '[]');
+            comments.splice(idx, 1);
+            localStorage.setItem('comments', JSON.stringify(comments));
+            loadComments();
+        }
+        document.getElementById('commentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const text = document.getElementById('commentText').value.trim();
+            if (!username || !text) return;
+            const comment = {
+                username,
+                text,
+                date: new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date())  // Formato: "DD/MM/YYYY HH:MM"
+            };
+            const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+            comments.unshift(comment);
+            localStorage.setItem('comments', JSON.stringify(comments));
+            this.reset();
+            loadComments();
+        });
+        loadComments();
+        </script>
+        <style>
+        .comments-section { max-width: 600px; margin: 40px auto; background: #ffffff; padding: 20px; border-radius: 8px;}
+        .comments-section h2 { margin-bottom: 15px; }
+        #commentForm { display: flex; flex-direction: column; gap: 10px; }
+        #commentForm input, #commentForm textarea { padding: 8px; border-radius: 4px; border: 1px solid #7c7c7c; }
+        #commentsList { margin-top: 20px; }
+        .comment { background: #71c7e952; border-radius: 4px; padding: 10px; margin-bottom: 10px; border: 1px solid #575757; }
+        </style>
+    </section>
+    
 
     <!-- footer design -->
     <footer class="footer">
