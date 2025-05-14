@@ -242,49 +242,118 @@
                 <button type="submit" class="btn">Comentar</button>
             </form>
             <div id="commentsList"></div>
+            <!-- Campo para o dono do site inserir a senha e ativar o modo de exclusão -->
+            <div style="margin-top:20px;">
+                <input type="password" id="ownerPassword" placeholder="Senha do dono (excluir comentários)" style="padding:6px;border-radius:4px;border:1px solid #aaa;">
+                <button id="ownerLoginBtn" class="btn" style="margin-left:8px;">Entrar como dono</button>
+                <button id="ownerLogoutBtn" class="btn" style="margin-left:8px;display:none;">Sair</button>
+                <span id="ownerStatus" style="margin-left:10px;color:#27ae60;font-size:0.95em;"></span>
+            </div>
         </div>
         <script>
-        // Carrega comentários do localStorage
+        // Define a senha do dono do site (altere para uma senha forte e secreta)
+        // A senha do dono está ofuscada para não ser facilmente visível no código-fonte
+        const OWNER_PASSWORD = atob('YXJlemk=').replace('i', 'i2024');
+
+        // Variável para controlar se o dono está autenticado
+        let isOwner = false;
+
+        // Função para carregar comentários do localStorage e exibir na tela
         function loadComments() {
+            // Recupera os comentários do localStorage, ou array vazio se não houver
             const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+            // Seleciona o elemento onde os comentários serão exibidos
             const commentsList = document.getElementById('commentsList');
+            // Limpa o conteúdo atual
             commentsList.innerHTML = '';
+            // Para cada comentário, cria um bloco na tela
             comments.forEach((c, idx) => {
                 const div = document.createElement('div');
                 div.className = 'comment';
-                div.innerHTML = `<strong>${c.username}</strong> <span style="font-size:0.8em;color:#888;">${c.date}</span><br>${c.text}
-                <button class="delete-comment" data-idx="${idx}" style="float:right;background:#e74c3c;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;">Excluir</button>`;
+                // Monta o HTML do comentário
+                div.innerHTML = `<strong>${c.username}</strong> <span style="font-size:0.8em;color:#888;">${c.date}</span><br>${c.text}`;
+                // Se o dono está autenticado, mostra o botão de excluir
+                if (isOwner) {
+                    div.innerHTML += `<button class="delete-comment" data-idx="${idx}" style="float:right;background:#e74c3c;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;">Excluir</button>`;
+                }
                 commentsList.appendChild(div);
             });
-            // Adiciona evento para botões de exclusão
-            document.querySelectorAll('.delete-comment').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    deleteComment(this.getAttribute('data-idx'));
+            // Se o dono está autenticado, adiciona evento aos botões de exclusão
+            if (isOwner) {
+                document.querySelectorAll('.delete-comment').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        deleteComment(this.getAttribute('data-idx'));
+                    });
                 });
-            });
+            }
         }
+
+        // Função para excluir um comentário pelo índice
         function deleteComment(idx) {
+            // Recupera os comentários do localStorage
             let comments = JSON.parse(localStorage.getItem('comments') || '[]');
+            // Remove o comentário do array
             comments.splice(idx, 1);
+            // Salva novamente no localStorage
             localStorage.setItem('comments', JSON.stringify(comments));
+            // Recarrega os comentários na tela
             loadComments();
         }
+
+        // Evento de envio do formulário de comentário
         document.getElementById('commentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Impede o envio padrão do formulário
+            // Pega o nome e o texto do comentário
             const username = document.getElementById('username').value.trim();
             const text = document.getElementById('commentText').value.trim();
+            // Se algum campo estiver vazio, não faz nada
             if (!username || !text) return;
+            // Cria o objeto do comentário
             const comment = {
                 username,
                 text,
-                date: new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date())  // Formato: "DD/MM/YYYY HH:MM"
+                date: new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date()) // Data/hora atual formatada
             };
+            // Recupera os comentários existentes
             const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+            // Adiciona o novo comentário no início do array
             comments.unshift(comment);
+            // Salva no localStorage
             localStorage.setItem('comments', JSON.stringify(comments));
+            // Limpa o formulário
             this.reset();
+            // Recarrega os comentários na tela
             loadComments();
         });
+
+        // Evento de login do dono do site
+        document.getElementById('ownerLoginBtn').addEventListener('click', function() {
+            // Pega o valor do campo de senha
+            const pass = document.getElementById('ownerPassword').value;
+            // Verifica se a senha está correta
+            if (pass === OWNER_PASSWORD) {
+                isOwner = true; // Marca como autenticado
+                document.getElementById('ownerStatus').textContent = "Modo admin ativado!";
+                document.getElementById('ownerPassword').value = '';
+                document.getElementById('ownerLoginBtn').style.display = 'none';
+                document.getElementById('ownerLogoutBtn').style.display = '';
+                loadComments(); // Recarrega para mostrar botões de excluir
+            } else {
+                document.getElementById('ownerStatus').textContent = "Senha incorreta!";
+                setTimeout(() => { document.getElementById('ownerStatus').textContent = ""; }, 2000);
+            }
+        });
+
+        // Evento de logout do dono do site
+        document.getElementById('ownerLogoutBtn').addEventListener('click', function() {
+            isOwner = false; // Remove autenticação
+            document.getElementById('ownerStatus').textContent = "";
+            document.getElementById('ownerLoginBtn').style.display = '';
+            document.getElementById('ownerLogoutBtn').style.display = 'none';
+            loadComments(); // Recarrega para esconder botões de excluir
+        });
+
+        // Carrega os comentários ao abrir a página
         loadComments();
         </script>
         <style>
