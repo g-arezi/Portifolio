@@ -261,25 +261,18 @@
 
         // Função para carregar comentários do localStorage e exibir na tela
         function loadComments() {
-            // Recupera os comentários do localStorage, ou array vazio se não houver
             const comments = JSON.parse(localStorage.getItem('comments') || '[]');
-            // Seleciona o elemento onde os comentários serão exibidos
             const commentsList = document.getElementById('commentsList');
-            // Limpa o conteúdo atual
             commentsList.innerHTML = '';
-            // Para cada comentário, cria um bloco na tela
             comments.forEach((c, idx) => {
                 const div = document.createElement('div');
                 div.className = 'comment';
-                // Monta o HTML do comentário
-                div.innerHTML = `<strong>${c.username}</strong> <span style="font-size:0.8em;color:#888;">${c.date}</span><br>${c.text}`;
-                // Se o dono está autenticado, mostra o botão de excluir
+                div.innerHTML = `<strong>${c.username}</strong> <span style="font-size:0.8em;color:var(--comment-date-color);">${c.date}</span><br>${c.text}`;
                 if (isOwner) {
                     div.innerHTML += `<button class="delete-comment" data-idx="${idx}" style="float:right;background:#e74c3c;color:#fff;border:none;padding:2px 8px;border-radius:3px;cursor:pointer;">Excluir</button>`;
                 }
                 commentsList.appendChild(div);
             });
-            // Se o dono está autenticado, adiciona evento aos botões de exclusão
             if (isOwner) {
                 document.querySelectorAll('.delete-comment').forEach(btn => {
                     btn.addEventListener('click', function() {
@@ -289,81 +282,124 @@
             }
         }
 
-        // Função para excluir um comentário pelo índice
         function deleteComment(idx) {
-            // Recupera os comentários do localStorage
             let comments = JSON.parse(localStorage.getItem('comments') || '[]');
-            // Remove o comentário do array
             comments.splice(idx, 1);
-            // Salva novamente no localStorage
             localStorage.setItem('comments', JSON.stringify(comments));
-            // Recarrega os comentários na tela
             loadComments();
         }
 
-        // Evento de envio do formulário de comentário
         document.getElementById('commentForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Impede o envio padrão do formulário
-            // Pega o nome e o texto do comentário
+            e.preventDefault();
             const username = document.getElementById('username').value.trim();
             const text = document.getElementById('commentText').value.trim();
-            // Se algum campo estiver vazio, não faz nada
             if (!username || !text) return;
-            // Cria o objeto do comentário
             const comment = {
                 username,
                 text,
-                date: new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date()) // Data/hora atual formatada
+                date: new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date())
             };
-            // Recupera os comentários existentes
             const comments = JSON.parse(localStorage.getItem('comments') || '[]');
-            // Adiciona o novo comentário no início do array
             comments.unshift(comment);
-            // Salva no localStorage
             localStorage.setItem('comments', JSON.stringify(comments));
-            // Limpa o formulário
             this.reset();
-            // Recarrega os comentários na tela
             loadComments();
         });
 
-        // Evento de login do dono do site
         document.getElementById('ownerLoginBtn').addEventListener('click', function() {
-            // Pega o valor do campo de senha
             const pass = document.getElementById('ownerPassword').value;
-            // Verifica se a senha está correta
             if (pass === OWNER_PASSWORD) {
-                isOwner = true; // Marca como autenticado
+                isOwner = true;
                 document.getElementById('ownerStatus').textContent = "Modo admin ativado!";
                 document.getElementById('ownerPassword').value = '';
                 document.getElementById('ownerLoginBtn').style.display = 'none';
                 document.getElementById('ownerLogoutBtn').style.display = '';
-                loadComments(); // Recarrega para mostrar botões de excluir
+                loadComments();
             } else {
                 document.getElementById('ownerStatus').textContent = "Senha incorreta!";
                 setTimeout(() => { document.getElementById('ownerStatus').textContent = ""; }, 2000);
             }
         });
 
-        // Evento de logout do dono do site
         document.getElementById('ownerLogoutBtn').addEventListener('click', function() {
-            isOwner = false; // Remove autenticação
+            isOwner = false;
             document.getElementById('ownerStatus').textContent = "";
             document.getElementById('ownerLoginBtn').style.display = '';
             document.getElementById('ownerLogoutBtn').style.display = 'none';
-            loadComments(); // Recarrega para esconder botões de excluir
+            loadComments();
         });
 
-        // Carrega os comentários ao abrir a página
-        loadComments();
+        // Sincroniza o tema escuro/claro dos comentários com o body
+        function syncCommentsTheme() {
+            const isDark = document.body.classList.contains('dark-mode');
+            const section = document.querySelector('.comments-section');
+            if (isDark) {
+                section.classList.add('dark');
+            } else {
+                section.classList.remove('dark');
+            }
+        }
+
+        // Detecta mudança de tema pelo botão do site
+        document.addEventListener('DOMContentLoaded', function() {
+            syncCommentsTheme();
+            loadComments();
+        });
+
+        // Observa mudanças na classe do body para sincronizar o tema
+        const observer = new MutationObserver(syncCommentsTheme);
+        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
         </script>
         <style>
-        .comments-section { max-width: 600px; margin: 40px auto; background: #ffffff; padding: 20px; border-radius: 8px;}
+        .comments-section {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            transition: background 0.3s, color 0.3s;
+        }
         .comments-section h2 { margin-bottom: 15px; }
         #commentForm { display: flex; flex-direction: column; gap: 10px; }
-        #commentForm input, #commentForm textarea { padding: 8px; border-radius: 4px; border: 1px solid #7c7c7c; }
+        #commentForm input, #commentForm textarea {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #7c7c7c;
+            background: #f9f9f9;
+            color: #222;
+            transition: background 0.3s, color 0.3s;
+        }
         #commentsList { margin-top: 20px; }
-        .comment { background: #71c7e952; border-radius: 4px; padding: 10px; margin-bottom: 10px; border: 1px solid #575757; }
+        .comment {
+            background: #71c7e952;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #575757;
+            transition: background 0.3s, color 0.3s;
+        }
+        :root {
+            --comment-date-color: #888;
+        }
+        .comments-section.dark {
+            background: #23272f;
+            color: #f1f1f1;
+        }
+        .comments-section.dark #commentForm input,
+        .comments-section.dark #commentForm textarea {
+            background: #181c22;
+            color: #f1f1f1;
+            border: 1px solid #444;
+        }
+        .comments-section.dark .comment {
+            background: #2a3b4d;
+            color: #f1f1f1;
+            border: 1px solid #444;
+        }
+        .comments-section.dark :root {
+            --comment-date-color: #b0b0b0;
+        }
         </style>
     </section>
     
