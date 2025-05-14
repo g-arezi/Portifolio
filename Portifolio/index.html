@@ -231,7 +231,7 @@
             </div>
         </div>
     </section>
-    <!-- aba de comentários -->
+    <!-- aba de comentários 
     <section class="comments-section" id="comments">
         <div class="comments-section">
             <h2 class="heading">  <span> Comentários</span></h2>
@@ -243,7 +243,7 @@
                 <button type="submit" class="btn">Comentar</button>
             </form>
             <div id="commentsList"></div>
-            <!-- Campo para o dono do site inserir a senha e ativar o modo de exclusão -->
+            <!-- Campo para o dono do site inserir a senha e ativar o modo de exclusão 
             <div style="margin-top:20px;">
                 <input type="password" id="ownerPassword" placeholder="Senha do dono (excluir comentários)" style="padding:6px;border-radius:4px;border:1px solid #aaa;">
                 <button id="ownerLoginBtn" class="btn" style="margin-left:8px;">Entrar como dono</button>
@@ -252,16 +252,45 @@
             </div>
         </div>
         <script>
-        // Define a senha do dono do site (altere para uma senha forte e secreta)
+        // Troque o localStorage por uma API pública (exemplo: jsonbin.io)
+        // Substitua 'YOUR_BIN_ID' e 'YOUR_API_KEY' pelos seus dados do jsonbin.io
+        const BIN_ID = '6824c6148561e97a5013da04';
+        // A chave de API deve ser mantida em segredo, não deve ser exposta no código-fonte
+        const API_KEY = '$2a$10$xV3UxSMPWTxfsEaC4E6qA.HMCaT1/21/OQSM.YkSm3BDqXHRVdUQy';
+        // A URL da API
+        // Você pode usar o endpoint de leitura e escrita do jsonbin.io
+        const API_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+
         // A senha do dono está ofuscada para não ser facilmente visível no código-fonte
         const OWNER_PASSWORD = atob('YXJlemk=').replace('i', 'i2024');
-
-        // Variável para controlar se o dono está autenticado
         let isOwner = false;
 
-        // Função para carregar comentários do localStorage e exibir na tela
-        function loadComments() {
-            const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+        async function fetchComments() {
+            try {
+                const res = await fetch(API_URL + '/latest', {
+                    headers: { 'X-Master-Key': API_KEY }
+                });
+                if (!res.ok) throw new Error('Erro ao buscar comentários');
+                const data = await res.json();
+                return data.record || [];
+            } catch {
+                return [];
+            }
+        }
+
+        async function saveComments(comments) {
+            await fetch(API_URL, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Master-Key': API_KEY
+                },
+                body: JSON.stringify(comments)
+            });
+        }
+
+        async function loadComments() {
+            const comments = await fetchComments();
             const commentsList = document.getElementById('commentsList');
             commentsList.innerHTML = '';
             comments.forEach((c, idx) => {
@@ -275,21 +304,21 @@
             });
             if (isOwner) {
                 document.querySelectorAll('.delete-comment').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        deleteComment(this.getAttribute('data-idx'));
+                    btn.addEventListener('click', async function() {
+                        await deleteComment(this.getAttribute('data-idx'));
                     });
                 });
             }
         }
 
-        function deleteComment(idx) {
-            let comments = JSON.parse(localStorage.getItem('comments') || '[]');
+        async function deleteComment(idx) {
+            const comments = await fetchComments();
             comments.splice(idx, 1);
-            localStorage.setItem('comments', JSON.stringify(comments));
+            await saveComments(comments);
             loadComments();
         }
 
-        document.getElementById('commentForm').addEventListener('submit', function(e) {
+        document.getElementById('commentForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const username = document.getElementById('username').value.trim();
             const text = document.getElementById('commentText').value.trim();
@@ -299,9 +328,9 @@
                 text,
                 date: new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date())
             };
-            const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+            const comments = await fetchComments();
             comments.unshift(comment);
-            localStorage.setItem('comments', JSON.stringify(comments));
+            await saveComments(comments);
             this.reset();
             loadComments();
         });
@@ -329,7 +358,6 @@
             loadComments();
         });
 
-        // Sincroniza o tema escuro/claro dos comentários com o body
         function syncCommentsTheme() {
             const isDark = document.body.classList.contains('dark-mode');
             const section = document.querySelector('.comments-section');
@@ -340,16 +368,13 @@
             }
         }
 
-        // Detecta mudança de tema pelo botão do site
         document.addEventListener('DOMContentLoaded', function() {
             syncCommentsTheme();
             loadComments();
         });
 
-        // Observa mudanças na classe do body para sincronizar o tema
         const observer = new MutationObserver(syncCommentsTheme);
         observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-
         </script>
         <style>
         .comments-section {
@@ -402,7 +427,8 @@
         }
         </style>
     </section>
-    <!-- Admito, demorou para criar isso tudo!  -->
+    Por N motivos eu desabilitei essa função, mas caso queira utilizar, só tirar o comentário e utilizar uma key nova do jsonbin.io <3  -->
+    <!-- Para funcionar, crie um bin público em jsonbin.io, coloque o BIN_ID e API_KEY acima -->
 
     <!-- footer design -->
     <footer class="footer">
