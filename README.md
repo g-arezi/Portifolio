@@ -3,6 +3,9 @@
 ## Descrição
 Este projeto é um portfólio pessoal que apresenta as habilidades, experiências e serviços de um desenvolvedor web. O site é visualmente atraente, responsivo e funcional, permitindo que visitantes conheçam melhor o desenvolvedor, suas competências e possam entrar em contato facilmente.
 
+## Acesse Online
+O site está disponível online para visualização pública. Acesse e confira todas as funcionalidades e o design responsivo diretamente pelo navegador! [Portifólio](https://bit.ly/Gabriel-Arezi)
+
 ## Funcionalidades
 - **Página inicial com apresentação pessoal**
 - **Seção "Sobre mim"**: Informações sobre experiência, formação, habilidades técnicas e ferramentas utilizadas
@@ -47,6 +50,7 @@ Este projeto é um portfólio pessoal que apresenta as habilidades, experiência
 
 ## Contribuições
 Sinta-se à vontade para contribuir com melhorias ou correções. Para isso, crie um fork do repositório e envie um pull request.
+
 
 ---
 
