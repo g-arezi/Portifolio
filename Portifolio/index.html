@@ -395,35 +395,31 @@
         </section>
 
             <style>
-            /* CSS do Diagrama Clássico de Habilidades */
+            /* CSS do Diagrama Clássico - Seguindo o Layout da Página */
             .skills {
-                padding: 4rem 0;
-                background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-                position: relative;
-                min-height: 100vh;
+                min-height: auto;
+                padding: 10rem 7% 5rem;
+                background: var(--bg-color);
             }
             
             .section-title {
                 text-align: center;
-                margin-bottom: 3rem;
-                position: relative;
-                z-index: 2;
+                margin-bottom: 5rem;
             }
             
             .section-title h2 {
-                font-size: 2.8rem;
-                color: #2d3748;
-                font-weight: 800;
-                letter-spacing: 1px;
-                margin-bottom: 1rem;
+                font-size: 4.5rem;
+                color: var(--text-color);
+                font-weight: 700;
+                line-height: 1.2;
             }
             
             .section-title .underline {
-                width: 80px;
-                height: 4px;
-                background: linear-gradient(90deg, #4299e1, #3182ce);
-                margin: 0 auto;
-                border-radius: 2px;
+                width: 6rem;
+                height: 0.4rem;
+                background: var(--main-color);
+                margin: 1rem auto 0 auto;
+                border-radius: 0.2rem;
             }
             
             /* Container do Diagrama */
@@ -452,66 +448,73 @@
             }
             
             .profile-box {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                color: white;
-                padding: 2rem 3rem;
-                border-radius: 20px;
+                background: var(--main-color);
+                color: var(--white-color);
+                padding: 3rem 4rem;
+                border-radius: 1rem;
                 text-align: center;
-                box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-                border: 3px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 0 0.5rem 1.5rem var(--shadow-color);
+                border: 0.3rem solid transparent;
                 position: relative;
                 z-index: 10;
+                transition: 0.5s ease;
+            }
+            
+            .profile-box:hover {
+                transform: translateY(-0.5rem);
+                box-shadow: 0 1rem 2rem var(--shadow-color);
             }
             
             .profile-box i {
-                font-size: 3rem;
-                margin-bottom: 1rem;
+                font-size: 4rem;
+                margin-bottom: 1.5rem;
                 display: block;
             }
             
             .profile-box h3 {
-                font-size: 1.8rem;
+                font-size: 2.5rem;
                 font-weight: 700;
-                margin-bottom: 0.5rem;
+                margin-bottom: 0.8rem;
             }
             
             .profile-box p {
-                font-size: 1.1rem;
+                font-size: 1.6rem;
                 opacity: 0.9;
             }
             
             /* Conectores */
             .connectors {
                 position: relative;
-                height: 40px;
+                height: 4rem;
                 margin: 1rem 0;
                 z-index: 1;
             }
             
             .connector-line {
-                background: linear-gradient(90deg, #cbd5e0, #4a5568, #cbd5e0);
+                background: var(--main-color);
                 position: absolute;
-                border-radius: 1px;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                border-radius: 0.2rem;
+                box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
+                opacity: 0.8;
             }
             
             .horizontal-main {
                 top: 50%;
                 left: 20%;
                 right: 20%;
-                height: 3px;
+                height: 0.3rem;
                 transform: translateY(-50%);
-                background: linear-gradient(90deg, transparent, #4a5568, transparent);
             }
             
             .connector-branch {
-                width: 3px;
-                height: 25px;
-                background: linear-gradient(180deg, #4a5568, #718096);
+                width: 0.3rem;
+                height: 2.5rem;
+                background: var(--main-color);
                 position: absolute;
                 top: 50%;
-                border-radius: 1.5px;
-                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+                border-radius: 0.15rem;
+                box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
+                opacity: 0.8;
             }
             
             .level-1-to-2 .left { left: 20%; }
@@ -528,43 +531,39 @@
             }
             
             .category-box {
-                background: white;
-                padding: 1.5rem;
-                border-radius: 15px;
+                background: var(--white-color);
+                padding: 2rem 1.5rem;
+                border-radius: 1rem;
                 text-align: center;
                 flex: 1;
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-                border: 2px solid #e2e8f0;
-                transition: all 0.3s ease;
+                box-shadow: 0 0.5rem 1.5rem var(--shadow-color);
+                border: 0.2rem solid transparent;
+                transition: 0.5s ease;
                 position: relative;
             }
             
             .category-box:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-                border-color: #4299e1;
+                transform: translateY(-0.5rem);
+                box-shadow: 0 1rem 2rem var(--shadow-color);
+                border-color: var(--main-color);
             }
             
-            .category-box.frontend { border-top: 4px solid #f56565; }
-            .category-box.backend { border-top: 4px solid #48bb78; }
-            .category-box.database { border-top: 4px solid #ed8936; }
-            .category-box.design { border-top: 4px solid #9f7aea; }
+            .category-box.frontend { border-top: 0.4rem solid var(--main-color); }
+            .category-box.backend { border-top: 0.4rem solid var(--main-color); }
+            .category-box.database { border-top: 0.4rem solid var(--main-color); }
+            .category-box.design { border-top: 0.4rem solid var(--main-color); }
             
             .category-box i {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
+                font-size: 3rem;
+                margin-bottom: 1.5rem;
                 display: block;
+                color: var(--main-color);
             }
             
-            .category-box.frontend i { color: #f56565; }
-            .category-box.backend i { color: #48bb78; }
-            .category-box.database i { color: #ed8936; }
-            .category-box.design i { color: #9f7aea; }
-            
             .category-box h4 {
-                font-size: 1.3rem;
+                font-size: 1.8rem;
                 font-weight: 700;
-                color: #2d3748;
+                color: var(--text-color);
                 margin: 0;
             }
             
@@ -623,51 +622,42 @@
             }
             
             .skill-box {
-                background: white;
-                padding: 1rem;
-                border-radius: 10px;
-                box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-                border-left: 4px solid;
-                transition: all 0.3s ease;
+                background: var(--white-color);
+                padding: 1.5rem;
+                border-radius: 1rem;
+                box-shadow: 0 0.5rem 1.5rem var(--shadow-color);
+                border-left: 0.4rem solid var(--main-color);
+                transition: 0.5s ease;
                 display: flex;
                 align-items: center;
-                gap: 0.8rem;
-                min-height: 60px;
+                gap: 1rem;
+                min-height: 7rem;
             }
             
-            .frontend-skills .skill-box { border-left-color: #f56565; }
-            .backend-skills .skill-box { border-left-color: #48bb78; }
-            .database-skills .skill-box { border-left-color: #ed8936; }
-            .design-skills .skill-box { border-left-color: #9f7aea; }
-            
             .skill-box:hover {
-                transform: translateX(5px);
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+                transform: translateX(0.5rem);
+                box-shadow: 0 1rem 2rem var(--shadow-color);
             }
             
             .skill-box i {
-                font-size: 1.5rem;
-                width: 30px;
+                font-size: 2rem;
+                width: 4rem;
                 text-align: center;
+                color: var(--main-color);
             }
-            
-            .frontend-skills .skill-box i { color: #f56565; }
-            .backend-skills .skill-box i { color: #48bb78; }
-            .database-skills .skill-box i { color: #ed8936; }
-            .design-skills .skill-box i { color: #9f7aea; }
             
             .skill-box span {
                 font-weight: 600;
-                color: #2d3748;
-                min-width: 80px;
-                font-size: 0.9rem;
+                color: var(--text-color);
+                min-width: 10rem;
+                font-size: 1.4rem;
             }
             
             .skill-bar {
                 flex: 1;
-                height: 6px;
-                background: #e2e8f0;
-                border-radius: 3px;
+                height: 0.8rem;
+                background: rgba(6, 142, 221, 0.1);
+                border-radius: 0.4rem;
                 overflow: hidden;
                 margin: 0 0.5rem;
                 position: relative;
@@ -675,88 +665,90 @@
             
             .skill-bar .fill {
                 height: 100%;
-                border-radius: 3px;
+                border-radius: 0.4rem;
                 transition: width 2s ease-out;
                 position: relative;
-                background: linear-gradient(90deg, #4299e1 0%, #3182ce 100%);
+                background: var(--main-color);
             }
-            
-            .frontend-skills .skill-bar .fill { background: linear-gradient(90deg, #f56565 0%, #e53e3e 100%); }
-            .backend-skills .skill-bar .fill { background: linear-gradient(90deg, #48bb78 0%, #38a169 100%); }
-            .database-skills .skill-bar .fill { background: linear-gradient(90deg, #ed8936 0%, #dd6b20 100%); }
-            .design-skills .skill-bar .fill { background: linear-gradient(90deg, #9f7aea 0%, #805ad5 100%); }
             
             .skill-box small {
                 font-weight: 700;
-                color: #4a5568;
-                font-size: 0.8rem;
-                min-width: 35px;
+                color: var(--main-color);
+                font-size: 1.2rem;
+                min-width: 4rem;
                 text-align: right;
             }
             
             /* Nível 4 - Complementares */
             .level-4 {
                 text-align: center;
-                margin-top: 3rem;
+                margin-top: 4rem;
             }
             
             .complement-section {
-                background: white;
-                padding: 2rem;
-                border-radius: 20px;
-                box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-                border: 2px solid #e2e8f0;
+                background: var(--white-color);
+                padding: 3rem 2rem;
+                border-radius: 1rem;
+                box-shadow: 0 0.5rem 1.5rem var(--shadow-color);
+                border: 0.2rem solid transparent;
+                transition: 0.5s ease;
+            }
+            
+            .complement-section:hover {
+                border-color: var(--main-color);
+                transform: translateY(-0.5rem);
             }
             
             .complement-section h4 {
-                font-size: 1.5rem;
+                font-size: 2.2rem;
                 font-weight: 700;
-                color: #2d3748;
-                margin-bottom: 1.5rem;
+                color: var(--text-color);
+                margin-bottom: 2rem;
             }
             
             .complement-skills {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 1.5rem;
+                gap: 2rem;
             }
             
             .complement-item {
-                background: #f7fafc;
-                padding: 1rem;
-                border-radius: 10px;
+                background: var(--bg-color);
+                padding: 1.5rem;
+                border-radius: 1rem;
                 text-align: center;
-                min-width: 120px;
-                border: 2px solid #e2e8f0;
-                transition: all 0.3s ease;
+                min-width: 14rem;
+                border: 0.2rem solid transparent;
+                transition: 0.5s ease;
+                box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
             }
             
             .complement-item:hover {
-                transform: translateY(-3px);
-                border-color: #4299e1;
-                box-shadow: 0 5px 15px rgba(66, 153, 225, 0.2);
+                transform: translateY(-0.3rem);
+                border-color: var(--main-color);
+                box-shadow: 0 0.5rem 1rem var(--shadow-color);
             }
             
             .complement-item i {
-                font-size: 1.8rem;
-                color: #4299e1;
-                margin-bottom: 0.5rem;
+                font-size: 2.5rem;
+                color: var(--main-color);
+                margin-bottom: 1rem;
                 display: block;
             }
             
             .complement-item span {
                 font-weight: 600;
-                color: #2d3748;
-                font-size: 0.9rem;
+                color: var(--text-color);
+                font-size: 1.4rem;
                 display: block;
-                margin-bottom: 0.3rem;
+                margin-bottom: 0.5rem;
             }
             
             .complement-item small {
                 font-weight: 700;
-                color: #4299e1;
-                font-size: 0.8rem;
+                color: var(--main-color);
+                font-size: 1.2rem;
             }
             
             /* Animações */
@@ -793,20 +785,114 @@
             .skill-bar .fill[data-width="70"] { width: 70%; }
             
             /* Responsividade */
-            @media (max-width: 1024px) {
+            @media (max-width: 1200px) {
+                .skills {
+                    padding: 8rem 5% 4rem;
+                }
+                
+                .section-title h2 {
+                    font-size: 3.5rem;
+                }
+                
+                .skills-diagram-classic {
+                    padding: 2rem 0;
+                }
+            }
+            
+            @media (max-width: 991px) {
+                .skills {
+                    padding: 6rem 3% 3rem;
+                }
+                
+                .section-title h2 {
+                    font-size: 3rem;
+                }
+                
                 .level-2, .level-3 {
-                    flex-wrap: wrap;
-                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 2rem;
                 }
                 
                 .category-box, .skills-group {
-                    min-width: 300px;
-                    margin-bottom: 1rem;
+                    max-width: 40rem;
+                    width: 100%;
                 }
                 
-                .connector-group {
+                .connectors {
                     display: none;
                 }
+            }
+            
+            @media (max-width: 617px) {
+                .section-title h2 {
+                    font-size: 2.5rem;
+                }
+                
+                .profile-box {
+                    padding: 2rem 2.5rem;
+                }
+                
+                .profile-box h3 {
+                    font-size: 2rem;
+                }
+                
+                .skill-box {
+                    padding: 1rem;
+                    min-height: 6rem;
+                }
+                
+                .complement-skills {
+                    gap: 1rem;
+                }
+                
+                .complement-item {
+                    min-width: 12rem;
+                }
+            }
+            
+            /* Dark Mode Support */
+            .dark-mode .section-title h2 {
+                color: var(--text-color);
+            }
+            
+            .dark-mode .profile-box {
+                background: var(--main-color);
+                color: var(--white-color);
+            }
+            
+            .dark-mode .category-box {
+                background: rgba(255, 255, 255, 0.05);
+                color: var(--text-color);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+            
+            .dark-mode .category-box:hover {
+                border-color: var(--main-color);
+                background: rgba(255, 255, 255, 0.08);
+            }
+            
+            .dark-mode .skill-box {
+                background: rgba(255, 255, 255, 0.05);
+                color: var(--text-color);
+            }
+            
+            .dark-mode .skill-box:hover {
+                background: rgba(255, 255, 255, 0.08);
+            }
+            
+            .dark-mode .complement-section {
+                background: rgba(255, 255, 255, 0.05);
+                color: var(--text-color);
+            }
+            
+            .dark-mode .complement-item {
+                background: rgba(255, 255, 255, 0.03);
+                color: var(--text-color);
+            }
+            
+            .dark-mode .complement-item:hover {
+                background: rgba(255, 255, 255, 0.08);
             }
             
             @media (max-width: 768px) {
