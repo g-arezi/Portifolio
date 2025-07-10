@@ -32,6 +32,7 @@
             <a href="#sobre-mim">Sobre mim</a>
             <!--<a href="#recomendacoes">Recomendações</a> -->
             <a href="#services">Serviços</a>
+            <a href="#projects">Projetos</a>
             
             <!--<a href="#contact">Contato</a> -->
         </nav>
@@ -1088,6 +1089,231 @@
             }
         </style>
     </section>
+    
+
+    <!-- Projetos section design -->
+    <section class="projects" id="projects">
+        <h2 class="heading">Meus <span>Projetos</span> no GitHub</h2>
+        <div class="underline"></div>
+        <div id="github-projects" class="projects-container">
+            <p>Carregando projetos...</p>
+        </div>
+    </section>
+    <script>
+    // Substitua pelo seu usuário do GitHub
+    const githubUser = "g-arezi";
+    const projectsContainer = document.getElementById('github-projects');
+    const langIcons = {
+      'JavaScript': '<i class="fab fa-js-square" style="color:#f7df1e"></i>',
+      'TypeScript': '<i class="fab fa-js" style="color:#3178c6"></i>',
+      'HTML': '<i class="fab fa-html5" style="color:#e34c26"></i>',
+      'CSS': '<i class="fab fa-css3-alt" style="color:#264de4"></i>',
+      'Python': '<i class="fab fa-python" style="color:#3572A5"></i>',
+      'C#': '<i class="fas fa-code" style="color:#68217a"></i>',
+      'C++': '<i class="fas fa-code" style="color:#00599C"></i>',
+      'PHP': '<i class="fab fa-php" style="color:#777bb4"></i>',
+      'Java': '<i class="fab fa-java" style="color:#b07219"></i>',
+      'Shell': '<i class="fas fa-terminal" style="color:#89e051"></i>',
+      'Go': '<i class="fab fa-golang" style="color:#00ADD8"></i>',
+      'Vue': '<i class="fab fa-vuejs" style="color:#42b883"></i>',
+      'React': '<i class="fab fa-react" style="color:#61dafb"></i>',
+      'Dockerfile': '<i class="fab fa-docker" style="color:#2496ed"></i>',
+      'Jupyter Notebook': '<i class="fas fa-book" style="color:#f37626"></i>',
+      'N/A': '<i class="fas fa-question-circle" style="color:#888"></i>'
+    };
+    fetch(`https://api.github.com/users/${githubUser}/repos?sort=updated&per_page=100`)
+      .then(res => res.json())
+      .then(repos => {
+        if (!Array.isArray(repos) || repos.length === 0) {
+          projectsContainer.innerHTML = '<p>Nenhum projeto encontrado.</p>';
+          return;
+        }
+        // Destaque para projetos com mais de 10 estrelas
+        repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+        projectsContainer.innerHTML = repos.map(repo => {
+          const lang = repo.language || 'N/A';
+          const icon = langIcons[lang] || langIcons['N/A'];
+          const isFeatured = repo.stargazers_count >= 10;
+          return `
+            <div class="project-card${isFeatured ? ' featured' : ''}">
+              <div class="project-lang">${icon} ${lang}</div>
+              <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+              <p>${repo.description ? repo.description : 'Sem descrição.'}</p>
+              <div class="project-meta">
+                <span class="star">⭐ ${repo.stargazers_count}</span>
+                <span class="fork">🍴 ${repo.forks_count}</span>
+                <span class="date">Atualizado: ${new Date(repo.updated_at).toLocaleDateString('pt-BR')}</span>
+              </div>
+              <a class="repo-link" href="${repo.html_url}" target="_blank">Ver no GitHub</a>
+            </div>
+          `;
+        }).join('');
+      })
+      .catch(() => {
+        projectsContainer.innerHTML = '<p>Erro ao carregar projetos do GitHub.</p>';
+      });
+    </script>
+    <style>
+    .projects {
+        padding: 8rem 7% 5rem;
+        background: var(--bg-color);
+    }
+    .projects .heading {
+        font-size: 4rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .projects .underline {
+        width: 6rem;
+        height: 0.4rem;
+        background: var(--main-color);
+        margin: 0 auto 3rem auto;
+        border-radius: 0.2rem;
+    }
+    .projects-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        justify-content: center;
+    }
+    .project-card {
+        background: var(--white-color);
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 24px rgba(0,171,240,0.10);
+        padding: 2.5rem 2rem 2rem 2rem;
+        width: 340px;
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        border: 2px solid transparent;
+        transition: box-shadow 0.3s, border 0.3s, transform 0.3s, background 0.3s;
+        overflow: hidden;
+        animation: fadeInUp 0.7s;
+    }
+    .project-card:hover {
+        border: 2px solid var(--main-color);
+        box-shadow: 0 8px 32px rgba(0,171,240,0.18);
+        transform: translateY(-8px) scale(1.03);
+        background: linear-gradient(120deg, var(--main-color) 0%, #00c6fb 100%);
+        color: #fff;
+    }
+    .project-card .project-lang {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.5rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        background: rgba(6,142,221,0.08);
+        color: var(--main-color);
+        padding: 0.3rem 1rem;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background 0.3s, color 0.3s;
+    }
+    .project-card:hover .project-lang {
+        background: rgba(255,255,255,0.18);
+        color: #fff;
+    }
+    .project-card h3 {
+        font-size: 1.7rem;
+        margin-bottom: 0.7rem;
+        font-weight: 700;
+        word-break: break-all;
+    }
+    .project-card a.repo-link {
+        display: inline-block;
+        margin-top: 1.2rem;
+        padding: 0.7rem 1.5rem;
+        background: var(--main-color);
+        color: #fff;
+        border-radius: 0.7rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(0,171,240,0.10);
+        transition: background 0.3s, color 0.3s;
+    }
+    .project-card a.repo-link:hover {
+        background: #fff;
+        color: var(--main-color);
+        border: 1px solid var(--main-color);
+    }
+    .project-card p {
+        font-size: 1.2rem;
+        color: #444;
+        margin-bottom: 1.2rem;
+        min-height: 40px;
+        flex: 1;
+    }
+    .project-card .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        font-size: 1.1rem;
+        color: #666;
+        margin-top: 0.5rem;
+    }
+    .project-card .project-meta .star {
+        color: #f7b731;
+        font-weight: bold;
+    }
+    .project-card .project-meta .fork {
+        color: #00abf0;
+    }
+    .project-card .project-meta .date {
+        color: #888;
+        font-size: 1rem;
+    }
+    .project-card.featured {
+        border: 2px solid #f7b731;
+        box-shadow: 0 8px 32px rgba(247,183,49,0.18);
+    }
+    @media (max-width: 900px) {
+        .projects-container {
+            gap: 1.5rem;
+        }
+        .project-card {
+            width: 95vw;
+            max-width: 400px;
+        }
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    body.dark-mode .projects {
+        background: #23272f;
+    }
+    body.dark-mode .project-card {
+        background: #2d3748;
+        color: #f1f1f1;
+        box-shadow: 0 2px 16px rgba(0,171,240,0.07);
+    }
+    body.dark-mode .project-card:hover {
+        background: linear-gradient(120deg, var(--main-color) 0%, #00c6fb 100%);
+        color: #fff;
+    }
+    body.dark-mode .project-card .project-lang {
+        background: rgba(0,171,240,0.13);
+        color: #00abf0;
+    }
+    body.dark-mode .project-card:hover .project-lang {
+        background: rgba(255,255,255,0.18);
+        color: #fff;
+    }
+    body.dark-mode .project-card a.repo-link {
+        background: #00abf0;
+        color: #fff;
+    }
+    body.dark-mode .project-card a.repo-link:hover {
+        background: #fff;
+        color: #00abf0;
+    }
+    </style>
     
 
     <!-- footer design -->
