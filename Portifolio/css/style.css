@@ -939,3 +939,48 @@ span {
 img {
     border-radius: 20px;
 }
+
+/* testemunhos */
+.testimonial-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.testimonial-navigation button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: var(--main-color);
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-navigation button:hover {
+    background: var(--main-color);
+    color: var(--white-color);
+}
+
+.testimonial-navigation button:focus {
+    outline: 2px solid var(--main-color);
+}
+
+@media (max-width: 600px) {
+    .testimonial-navigation {
+        padding: 0 1rem;
+    }
+    .testimonial-navigation button {
+        font-size: 2rem;
+        width: 40px;
+        height: 40px;
+    }
+}

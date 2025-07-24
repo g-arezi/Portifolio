@@ -50,8 +50,8 @@ var swiper = new Swiper(".mySwiper", {
         clickable: true,
     },
     navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".testimonial-next",
+        prevEl: ".testimonial-prev",
     },
 });
 
@@ -75,4 +75,13 @@ ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
 ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img img', { origin: 'left' });
 ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });
+
+// Adicionar funcionalidade aos botões de navegação
+document.querySelector('.testimonial-prev').addEventListener('click', () => {
+    swiper.slidePrev();
+});
+
+document.querySelector('.testimonial-next').addEventListener('click', () => {
+    swiper.slideNext();
+});
 
