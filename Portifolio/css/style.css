@@ -17,6 +17,7 @@
     --main-color: #068edd;
     --white-color: #fdfdfd;
     --shadow-color: rgba(0, 0, 0, .2);
+    --vh: 1vh; /* Variável para cálculos de altura em dispositivos móveis */
 }
 
 *::selection {
@@ -34,6 +35,9 @@
    }
    a:hover{
     color: #ffffff;
+   }
+   #darkMode-icon {
+    color: #FFC107; /* Cor amarela para o sol no modo escuro */
    }
 }
 
@@ -107,6 +111,15 @@ body {
     font-size: 2.4rem;
     color: var(--white-color);
     cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#darkMode-icon:hover {
+    transform: rotate(15deg);
+}
+
+#darkMode-icon.bx-sun {
+    color: #FFC107; /* Cor amarela para o sol */
 }
 
 .header.sticky #darkMode-icon {
@@ -997,6 +1010,90 @@ img {
     /* Ajustes gerais */
     body {
         overflow-x: hidden;
+    }
+    
+    /* Ajustes no Header e navegação */
+    .header {
+        padding: 1.5rem 5%;
+    }
+    
+    .logo {
+        font-size: 2.2rem;
+    }
+    
+    #darkMode-icon {
+        right: 5.5rem;
+    }
+    
+    /* Ajustes na seção Home */
+    .home {
+        padding-top: 5rem;
+    }
+    
+    .home-content h1 {
+        font-size: 4.2rem;
+    }
+    
+    .home-content h3 {
+        font-size: 2.4rem;
+    }
+    
+    .home-content p {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 1rem 2.5rem;
+        font-size: 1.5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+    
+    /* Ajustes na seção Sobre */
+    .about-content h2 {
+        font-size: 4rem;
+    }
+    
+    .about-content h3 {
+        font-size: 1.8rem;
+    }
+    
+    .about-content p {
+        font-size: 1.5rem;
+    }
+    
+    /* Ajustes nos serviços */
+    .services-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    /* Ajustes nas recomendações */
+    .testimonial-slide {
+        padding: 2rem 1.5rem !important;
+    }
+    
+    .testimonial-slide img {
+        width: 10rem !important;
+        height: 10rem !important;
+    }
+    
+    .testimonial-slide h3 {
+        font-size: 2rem !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .testimonial-slide p {
+        font-size: 1.3rem !important;
+    }
+    
+    /* Ajustes no formulário de contato */
+    .contact form .input-box input,
+    .contact form textarea {
+        padding: 1.2rem;
+    }
+    
+    /* Ajustes no rodapé */
+    .footer {
+        padding: 1.5rem 5%;
     }
 
     /* Header e navegação */

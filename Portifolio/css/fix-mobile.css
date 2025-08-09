@@ -1,0 +1,114 @@
+/* Correções adicionais para resolver problemas específicos no layout mobile */
+
+@media (max-width: 767px) {
+    /* Correção da estrutura da página home */
+    .home {
+        position: relative;
+        height: auto;
+        min-height: calc(100vh - 7rem);
+        min-height: calc(calc(var(--vh, 1vh) * 100) - 7rem);
+        padding: 10rem 7% 5rem;
+        overflow: hidden;
+    }
+    
+    /* Ocultar o carrossel de profissões em telas pequenas */
+    .home .profession-container {
+        display: none;
+    }
+    
+    /* Centralização do conteúdo */
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    /* Ajuste nos botões para melhor alinhamento */
+    .home-content .btn {
+        margin: 1rem auto;
+        width: 90%;
+        max-width: 300px;
+    }
+
+    /* Ajuste nos botões sociais */
+    .social-media {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+    }
+
+    /* Melhor espaçamento para leitura dos textos */
+    .home-content p {
+        margin-bottom: 1.5rem;
+        max-width: 100%;
+    }
+
+    /* Correção no quadro de idiomas */
+    .language-skills {
+        position: static !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 3rem auto 0 !important;
+        z-index: 2 !important;
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Barra de progresso dos idiomas */
+    .language-bar div[style*="display:inline-block"] div[style*="width"] {
+        min-width: 40px !important;
+    }
+    
+    /* Melhorias no dark mode */
+    body.dark-mode .language-skills {
+        background: rgba(20, 20, 35, 0.9) !important;
+    }
+    
+    body.dark-mode .header {
+        background: rgba(20, 20, 35, 0.9);
+    }
+    
+    /* Melhorias no scrolling */
+    html, body {
+        scroll-padding-top: 5rem;
+        scroll-behavior: smooth;
+    }
+    
+    /* Ajustes nas seções */
+    section {
+        scroll-margin-top: 5rem;
+    }
+}
+
+/* Ajustes específicos para telas muito pequenas */
+@media (max-width: 380px) {
+    html {
+        font-size: 45%;
+    }
+    
+    .home-content h1 {
+        font-size: 3.4rem;
+    }
+    
+    .home-content h3 {
+        font-size: 2rem;
+    }
+    
+    .home-content .social-media a {
+        width: 3.5rem;
+        height: 3.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 0;
+        font-size: 1.4rem;
+    }
+    
+    .language-skills {
+        padding: 1rem !important;
+    }
+}

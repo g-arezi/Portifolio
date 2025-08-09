@@ -1,15 +1,25 @@
 /*========== menu icon navbar ==========*/
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
-
+/*=====================================================*/
 menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
+    
+    // Desabilita o scroll quando o menu está aberto em dispositivos móveis
+    if (window.innerWidth <= 768) {
+        if (navbar.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
 };
 
 /*========== scroll sections active link ==========*/
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
+/*=====================================================*/
 
 window.onscroll = () => {
     sections.forEach(sec => {
@@ -38,6 +48,7 @@ navLinks.forEach(link => {
         navbar.classList.remove('active');
     });
 });
+/*=====================================================*/
 
 /*========== swiper ==========*/
 var swiper = new Swiper(".mySwiper", {
@@ -58,10 +69,12 @@ var swiper = new Swiper(".mySwiper", {
 /*========== dark light mode ==========*/
 let darkModeIcon = document.querySelector('#darkMode-icon');
 
+// Configuração básica do darkMode - a gestão avançada está em theme-mode.js
 darkModeIcon.onclick = () => {
     darkModeIcon.classList.toggle('bx-sun');
     document.body.classList.toggle('dark-mode');
 };
+/*=====================================================*/
 
 /*========== scroll reveal ==========*/
 ScrollReveal({
@@ -70,7 +83,7 @@ ScrollReveal({
     duration: 2000,
     delay: 200
 });
-
+/*=====================================================*/
 ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
 ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img img', { origin: 'left' });

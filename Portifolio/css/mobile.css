@@ -1,0 +1,465 @@
+/* Mobile CSS - Arquivo complementar para melhorar a responsividade do site em dispositivos móveis */
+
+/* Meta viewport já está definido no HTML, garantindo o escalonamento adequado em dispositivos móveis */
+
+/* Ajustes para melhorar a experiência em dispositivos móveis */
+@media (max-width: 480px) {
+    html {
+        font-size: 50%;
+    }
+    
+    body {
+        overflow-x: hidden;
+        background: var(--bg-color);
+    }
+    
+    section {
+        padding: 8rem 4% 2rem;
+        min-height: auto;
+    }
+    
+    /* Ajustes no menu e header */
+    .header {
+        padding: 1.5rem 5%;
+        background: rgba(0, 0, 0, 0.85);
+        box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.3);
+    }
+    
+    .logo {
+        font-size: 2.2rem;
+        margin-right: 0;
+    }
+    
+    #menu-icon {
+        font-size: 3rem;
+        margin-left: auto;
+        color: var(--white-color);
+    }
+    
+    #darkMode-icon {
+        position: relative;
+        right: 0;
+        margin-left: 2rem;
+        font-size: 2.4rem;
+        color: var(--white-color);
+    }
+    
+    .navbar.active {
+        padding: 2rem 5%;
+        display: flex;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 100;
+    }
+    
+    .navbar a {
+        margin: 1.5rem 0;
+        font-size: 1.8rem;
+        color: var(--white-color) !important;
+        text-align: center;
+        padding: 0.8rem 0;
+    }
+    
+    .navbar a.active {
+        color: var(--main-color) !important;
+    }
+    
+    /* Ajustes na seção Home */
+    .home {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 8rem;
+        padding-bottom: 5rem;
+        text-align: center;
+        overflow: visible;
+    }
+    
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    .home-content h1 {
+        font-size: 3.8rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+    
+    .home-content h3 {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+    
+    .home-content p {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        max-width: 90%;
+    }
+    
+    .home-content .social-media {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+    }
+    
+    .home-content .social-media a {
+        width: 4rem;
+        height: 4rem;
+        margin: 0 1rem;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 1rem 0;
+        margin: 0.7rem 0;
+        width: 85%;
+        max-width: 280px;
+        text-align: center;
+        font-size: 1.6rem;
+    }
+    
+    /* Ajustes na caixa de idiomas */
+    .language-skills {
+        position: static !important;
+        right: auto !important;
+        bottom: auto !important;
+        margin: 3rem auto 1rem !important;
+        width: 90% !important;
+        min-width: auto !important;
+        max-width: 320px !important;
+        border-radius: 1rem !important;
+        padding: 1.5rem !important;
+        z-index: 5 !important;
+        box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
+    
+    .language-skills h3 {
+        font-size: 1.8rem !important;
+        margin-bottom: 1.5rem !important;
+        text-align: center !important;
+    }
+    
+    .language-bar {
+        margin-bottom: 1.2rem !important;
+    }
+    
+    .language-bar:last-child {
+        margin-bottom: 0 !important;
+    }
+    
+    .language-bar span:first-child {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 0.5rem !important;
+        font-size: 1.4rem !important;
+    }
+    
+    .language-bar div[style*="display:inline-block"] {
+        width: 100% !important;
+        display: block !important;
+        height: 1.2rem !important;
+    }
+    
+    .language-bar span:last-child {
+        display: block !important;
+        width: 100% !important;
+        text-align: right !important;
+        margin: 0.5rem 0 0 !important;
+        font-size: 1.3rem !important;
+    }
+    
+    /* Ajustes na seção sobre mim */
+    .about-img img {
+        width: 100%;
+    }
+    
+    .about-content h2 {
+        font-size: 3.5rem;
+    }
+    
+    .about-content p {
+        font-size: 1.4rem;
+        margin: 1.5rem 0 2rem;
+    }
+    
+    /* Ajustes nas habilidades */
+    .skills-diagram-classic {
+        padding: 1rem;
+    }
+    
+    .profile-box {
+        padding: 1.5rem;
+    }
+    
+    .profile-box h3 {
+        font-size: 2rem;
+    }
+    
+    .category-box {
+        padding: 1.5rem 1rem;
+    }
+    
+    .skill-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1rem;
+        min-height: auto;
+    }
+    
+    .skill-box i {
+        margin-bottom: 0.5rem;
+    }
+    
+    .skill-box span {
+        margin-bottom: 0.5rem;
+        min-width: auto;
+    }
+    
+    .skill-bar {
+        margin: 0.5rem 0;
+    }
+    
+    .complement-item {
+        min-width: 100%;
+    }
+    
+    /* Ajustes nas recomendações */
+    .testimonial-content .testimonial-slide {
+        padding: 2rem 1.5rem;
+    }
+    
+    .testimonial-slide h3 {
+        font-size: 2rem;
+        margin: 1rem 0;
+    }
+    
+    .testimonial-slide p {
+        font-size: 1.3rem;
+    }
+    
+    .testimonial-slide a {
+        display: block;
+        margin-top: 1rem;
+    }
+    
+    /* Ajustes nos serviços */
+    .services-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .services-box i {
+        font-size: 6rem;
+    }
+    
+    .services-box h3 {
+        font-size: 2.2rem;
+    }
+    
+    .services-box p {
+        font-size: 1.4rem;
+    }
+    
+    /* Ajustes no portfólio */
+    .portfolio-layer h4 {
+        font-size: 2.2rem;
+    }
+    
+    .portfolio-layer p {
+        font-size: 1.4rem;
+    }
+    
+    /* Ajustes no formulário de contato */
+    .contact form {
+        padding: 0 1rem;
+    }
+    
+    .contact form .input-box input,
+    .contact form textarea {
+        padding: 1.2rem;
+        font-size: 1.4rem;
+    }
+    
+    /* Ajustes no footer */
+    .footer {
+        padding: 1.5rem 5%;
+    }
+    
+    .footer-text p {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 360px) {
+    html {
+        font-size: 45%;
+    }
+    
+    .home-content h1 {
+        font-size: 3.8rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 2rem;
+        font-size: 1.4rem;
+    }
+    
+    .home-content .social-media a {
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+    
+    .about-content h2 {
+        font-size: 3.2rem;
+    }
+    
+    .testimonial-slide img {
+        width: 9rem !important;
+        height: 9rem !important;
+    }
+}
+
+/* Ajustes específicos para orientação paisagem em dispositivos móveis */
+@media (max-height: 500px) and (orientation: landscape) {
+    .home {
+        padding-top: 10rem;
+    }
+    
+    .header {
+        padding: 1rem 7%;
+    }
+    
+    .navbar.active {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .navbar a {
+        margin: 1.5rem 0;
+    }
+    
+    .home-content {
+        max-width: 60%;
+    }
+    
+    .home-content .social-media a {
+        margin: 1.5rem 0.7rem 1.5rem 0;
+    }
+    
+    .language-skills {
+        display: none !important;
+    }
+    
+    section {
+        padding: 6rem 7% 2rem;
+    }
+}
+
+/* Melhorias para touch nos elementos interativos */
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .navbar a,
+    .social-media a,
+    .services-box,
+    .portfolio-box,
+    .portfolio-layer a,
+    .testimonial-navigation button,
+    .footer-iconTop a {
+        cursor: default;
+    }
+    
+    .btn:active,
+    .navbar a:active,
+    .social-media a:active,
+    .portfolio-layer a:active,
+    .testimonial-navigation button:active,
+    .footer-iconTop a:active {
+        transform: scale(0.95);
+    }
+    
+    .navbar a {
+        padding: 1rem 0;
+    }
+    
+    .testimonial-navigation button {
+        padding: 1rem;
+    }
+}
+
+/* Otimização para melhor interatividade */
+.navbar a,
+.social-media a,
+.btn,
+.services-box,
+.portfolio-box,
+.testimonial-navigation button,
+.footer-iconTop a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Classe adicionada via JavaScript para dispositivos móveis */
+body.is-mobile-device .header {
+    transition: transform 0.3s ease;
+}
+
+body.is-mobile-device .header.header-hidden {
+    transform: translateY(-100%);
+}
+
+/* Efeito visual ao tocar em links em dispositivos móveis */
+body.is-mobile-device a.touch-active {
+    opacity: 0.8;
+    transform: scale(0.98);
+}
+
+/* Melhorar a experiência de leitura em telas pequenas */
+@media (max-width: 480px) {
+    p {
+        line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4 {
+        line-height: 1.3;
+    }
+    
+    /* Aumentar áreas clicáveis para facilitar o toque */
+    .navbar a,
+    .social-media a,
+    .btn,
+    .testimonial-navigation button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Melhorar espaçamento para facilitar leitura */
+    .services-box,
+    .about-content p,
+    .testimonial-slide p {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Otimizar animações para melhor performance em dispositivos de baixo desempenho */
+    .home .profession-container .profession-box {
+        animation-duration: 20s;
+    }
+    
+    /* Adicionar feedback visual em interações */
+    .btn:active,
+    .navbar a:active,
+    .social-media a:active {
+        transform: translateY(2px);
+        transition: transform 0.1s;
+    }
+}
