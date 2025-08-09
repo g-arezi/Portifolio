@@ -1,0 +1,26 @@
+/* CSS para garantir que as descrições dos projetos sejam brancas no modo noturno */
+
+/* Estilo específico para as descrições dos projetos no modo escuro */
+body.dark-mode .project-card p {
+    color: #ffffff;
+}
+
+/* Quando o card estiver em hover, garantir que o texto da descrição fique bem visível */
+body.dark-mode .project-card:hover p {
+    color: #ffffff;
+}
+
+/* Estilo para garantir boa visibilidade da data e metadados */
+body.dark-mode .project-card .project-meta span {
+    color: #e0e0e0;
+}
+
+/* Estilo para o texto do cabeçalho do projeto */
+body.dark-mode .project-card h3 a {
+    color: #00abf0;
+}
+
+/* Quando o card estiver em hover, garantir que o texto do título fique bem visível */
+body.dark-mode .project-card:hover h3 a {
+    color: #ffffff;
+}
