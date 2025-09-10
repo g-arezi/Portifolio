@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const navbar = document.querySelector('.navbar');
             const menuIcon = document.querySelector('#menu-icon');
             
-            if (navbar.classList.contains('active') && 
+            if (navbar && menuIcon && navbar.classList.contains('active') && 
                 !navbar.contains(event.target) && 
                 event.target !== menuIcon) {
                 menuIcon.click();
@@ -53,20 +53,22 @@ document.addEventListener('DOMContentLoaded', function() {
         let lastScrollTop = 0;
         const header = document.querySelector('.header');
         
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            // Esconde/mostra o header baseado na direção do scroll
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scroll para baixo
-                header.classList.add('header-hidden');
-            } else {
-                // Scroll para cima
-                header.classList.remove('header-hidden');
-            }
-            
-            lastScrollTop = scrollTop;
-        }, { passive: true });
+        if (header) {
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Esconde/mostra o header baseado na direção do scroll
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scroll para baixo
+                    header.classList.add('header-hidden');
+                } else {
+                    // Scroll para cima
+                    header.classList.remove('header-hidden');
+                }
+                
+                lastScrollTop = scrollTop;
+            }, { passive: true });
+        }
         
         // Adiciona suporte a gestos de swipe para o slider de recomendações
         const testimonialSlider = document.querySelector('.testimonial-box');
@@ -86,14 +88,17 @@ document.addEventListener('DOMContentLoaded', function() {
             
             function handleSwipe() {
                 // Detecta a direção do swipe e navega pelo slider
-                if (touchEndX < touchStartX - 50) {
+                const nextButton = document.querySelector('.testimonial-next');
+                const prevButton = document.querySelector('.testimonial-prev');
+                
+                if (touchEndX < touchStartX - 50 && nextButton) {
                     // Swipe para a esquerda
-                    document.querySelector('.testimonial-next').click();
+                    nextButton.click();
                 }
                 
-                if (touchEndX > touchStartX + 50) {
+                if (touchEndX > touchStartX + 50 && prevButton) {
                     // Swipe para a direita
-                    document.querySelector('.testimonial-prev').click();
+                    prevButton.click();
                 }
             }
         }

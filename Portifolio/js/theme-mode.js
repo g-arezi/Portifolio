@@ -18,6 +18,11 @@ function loadThemePreference() {
 document.addEventListener('DOMContentLoaded', () => {
     const darkModeIcon = document.querySelector('#darkMode-icon');
     
+    // Verificar se o elemento existe antes de prosseguir
+    if (!darkModeIcon) {
+        return;
+    }
+    
     // Verificar se há uma preferência salva
     const isDarkMode = loadThemePreference();
     
