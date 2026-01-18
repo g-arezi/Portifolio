@@ -83,9 +83,17 @@
 
             <div class="overlay"></div>
         </div>
-
+        <!-- Compact translate button (added) -->
+        <div class="footer-translate">
+            <button id="translate-toggle" class="translate-compact-btn" aria-controls="gt-panel" aria-expanded="false" aria-label="Abrir tradução">
+                <i class='bx bx-world'></i>
+                <span class="translate-label">Translate</span>
+            </button>
+        </div>
         <div class="language-skills" style="position: absolute; right: 2rem; bottom: 2rem; margin-top:2rem; background:rgba(255,255,255,0.95); border-radius:1rem; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:1.2rem 1.5rem; z-index:10; min-width:300px;">
+
             <h3 style="margin-bottom:1rem; color: #222;">Idiomas</h3>
+
             <div class="language-bar" style="margin-bottom:1rem;">
             <span style="display:inline-block;width:90px; color: #222;">Português(PT-BR)</span>
             <div style="display:inline-block;width:200px;height:18px;background:#e0e0e0;border-radius:9px;vertical-align:middle;overflow:hidden;">
@@ -1691,6 +1699,8 @@
         <div class="footer-iconTop">
             <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
+
+
     </footer>
 
 
@@ -1706,8 +1716,199 @@
     <script src="js/mobile.js"></script>
     <!-- tema escuro/claro js -->
     <script src="js/theme-mode.js"></script>
-</body>
 
+    <!-- Google Translate Panel (dropdown on desktop / modal on mobile) -->
+    <div id="gt-panel" class="gt-panel" aria-hidden="true">
+        <div id="gt-dialog" class="gt-dialog" role="dialog" aria-modal="false" aria-labelledby="gt-title">
+            <div class="gt-header">
+                <h3 id="gt-title">Traduzir página</h3>
+                <button id="gt-close" class="gt-close" aria-label="Fechar tradução">&times;</button>
+            </div>
+
+            <div class="gt-body">
+                <!-- The official widget will render into this element after lazy-loading -->
+                <div id="google_translate_element" class="gt-widget" tabindex="0"></div>
+
+                <div class="gt-actions">
+                    <button id="gt-reset" class="btn" type="button">Remover tradução</button>
+                </div>
+            </div>
+        </div>
+        <div id="gt-backdrop" class="gt-backdrop" tabindex="-1" aria-hidden="true"></div>
+    </div>
+
+    <script>
+        (function () {
+            // State
+            let gtLoaded = false;
+            const toggleBtn = document.getElementById('translate-toggle');
+            const panel = document.getElementById('gt-panel');
+            const dialog = document.getElementById('gt-dialog');
+            const closeBtn = document.getElementById('gt-close');
+            const backdrop = document.getElementById('gt-backdrop');
+            const resetBtn = document.getElementById('gt-reset');
+
+            // Utility: get focusable elements inside the dialog
+            function getFocusable(el) {
+                if (!el) return [];
+                const selectors = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex], [contenteditable]';
+                return Array.from(el.querySelectorAll(selectors)).filter(function (child) {
+                    return child.offsetWidth > 0 || child.offsetHeight > 0 || child.getClientRects().length;
+                });
+            }
+
+            // Lazy-load Google Translate script and init
+            window.googleTranslateElementInit = function () {
+                try {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'pt',
+                        includedLanguages: '',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                } catch (e) {
+                    console.warn('Erro ao inicializar o Google Translate', e);
+                }
+            };
+
+            function loadGoogleTranslate() {
+                if (gtLoaded) return Promise.resolve();
+                return new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                    script.async = true;
+                    script.onload = function () {
+                        gtLoaded = true;
+                        // Small delay to allow widget to render
+                        setTimeout(resolve, 250);
+                    };
+                    script.onerror = function (e) {
+                        console.error('Erro ao carregar script do Google Translate', e);
+                        reject(e);
+                    };
+                    document.head.appendChild(script);
+                });
+            }
+
+            // Open panel (dropdown on desktop, modal on small screens)
+            function openPanel() {
+                toggleBtn.setAttribute('aria-expanded', 'true');
+                panel.setAttribute('aria-hidden', 'false');
+                panel.classList.add('open');
+
+                // On small screens make aria-modal true for screen readers
+                if (window.matchMedia('(max-width: 768px)').matches) {
+                    dialog.setAttribute('aria-modal', 'true');
+                } else {
+                    dialog.setAttribute('aria-modal', 'false');
+                }
+
+                // Focus management: focus the widget or close button when opened
+                const focusable = getFocusable(dialog);
+                if (focusable.length) focusable[0].focus();
+
+                document.addEventListener('keydown', handleKeyDown);
+                backdrop.addEventListener('click', closePanel);
+            }
+
+            function closePanel() {
+                toggleBtn.setAttribute('aria-expanded', 'false');
+                panel.setAttribute('aria-hidden', 'true');
+                panel.classList.remove('open');
+                dialog.setAttribute('aria-modal', 'false');
+                toggleBtn.focus();
+                document.removeEventListener('keydown', handleKeyDown);
+                backdrop.removeEventListener('click', closePanel);
+            }
+
+            function handleKeyDown(e) {
+                if (e.key === 'Escape' || e.key === 'Esc') {
+                    closePanel();
+                    return;
+                }
+                if (e.key === 'Tab') {
+                    // Simple focus trap inside dialog
+                    const focusable = getFocusable(dialog);
+                    if (!focusable.length) return;
+                    const first = focusable[0];
+                    const last = focusable[focusable.length - 1];
+                    if (e.shiftKey) {
+                        if (document.activeElement === first) {
+                            e.preventDefault();
+                            last.focus();
+                        }
+                    } else {
+                        if (document.activeElement === last) {
+                            e.preventDefault();
+                            first.focus();
+                        }
+                    }
+                }
+            }
+
+            // Reset translation by setting select to first option and triggering change
+            function resetTranslation() {
+                const select = document.querySelector('#google_translate_element select');
+                if (select) {
+                    select.selectedIndex = 0;
+                    select.dispatchEvent(new Event('change'));
+                } else {
+                    // if widget not present, just reload original language
+                    location.reload();
+                }
+            }
+
+            // Event wiring
+            toggleBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const isOpen = panel.classList.contains('open');
+                if (isOpen) {
+                    closePanel();
+                    return;
+                }
+                // Load script on first open
+                loadGoogleTranslate().then(() => {
+                    openPanel();
+                }).catch(() => {
+                    openPanel(); // still open panel even if script failed
+                });
+            });
+
+            closeBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                closePanel();
+            });
+
+            resetBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                resetTranslation();
+            });
+
+            // Close when user navigates or focuses outside (optional enhancements)
+            window.addEventListener('resize', function () {
+                // adjust aria-modal on resize
+                if (panel.classList.contains('open')) {
+                    if (window.matchMedia('(max-width: 768px)').matches) {
+                        dialog.setAttribute('aria-modal', 'true');
+                    } else {
+                        dialog.setAttribute('aria-modal', 'false');
+                    }
+                }
+            });
+
+            // Avoid Google translate banner overlay interfering with layout
+            // Small helper to hide the banner if injected
+            const hideTranslateBanner = function () {
+                const banner = document.querySelector('.goog-te-banner-frame');
+                if (banner) banner.style.display = 'none';
+                const element = document.getElementById('google_translate_element');
+                if (element) element.style.opacity = '1';
+            };
+            // Periodically try to hide the banner after load
+            setInterval(hideTranslateBanner, 800);
+
+        })();
+    </script>
+</body>
 
 
 
@@ -1723,5 +1924,6 @@
 2. Navegue até o diretório do projeto:
    ```
    cd Portifolio
-   ``` 
+   ```
 -->
+

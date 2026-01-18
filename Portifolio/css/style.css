@@ -613,6 +613,54 @@ span {
 }
 
 
+/* Google Translate - compact button and panel styles */
+.footer-translate {
+    position: absolute;
+    right: 6rem;
+    bottom: 1.2rem;
+    z-index: 150;
+}
+
+.translate-compact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1rem;
+    background: var(--white-color);
+    color: var(--text-color);
+    border-radius: 0.6rem;
+    box-shadow: 0 .2rem .6rem var(--shadow-color);
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.translate-compact-btn i { font-size: 1.6rem; }
+.translate-compact-btn:focus, .translate-compact-btn:hover { outline: none; transform: translateY(-2px); }
+
+/* Panel wrapper */
+.gt-panel { position: fixed; right: 2rem; bottom: 5.6rem; z-index: 140; display: block; pointer-events: none; }
+.gt-panel .gt-dialog { pointer-events: auto; display: none; width: 340px; max-width: calc(100vw - 3rem); background: var(--white-color); color: var(--text-color); border-radius: .8rem; box-shadow: 0 .6rem 2rem rgba(0,0,0,0.15); overflow: hidden; }
+.gt-panel.open .gt-dialog { display: block; }
+.gt-header { display:flex; align-items:center; justify-content:space-between; padding: .9rem 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.gt-header h3 { font-size: 1.6rem; margin: 0; }
+.gt-close { background: transparent; font-size: 2rem; line-height: 1; cursor: pointer; color: var(--text-color); }
+.gt-body { padding: 1rem; }
+.gt-widget select { width: 100%; font-size: 1.6rem; padding: .6rem; border-radius: .4rem; border: 1px solid rgba(0,0,0,0.08); }
+.gt-actions { margin-top: .8rem; display:flex; justify-content:flex-end; gap: .6rem; }
+
+/* Backdrop for mobile modal */
+.gt-backdrop { display:none; }
+.gt-panel.open.gt-modal { left:0; right:0; top:0; bottom:0; display:block; }
+.gt-panel.open.gt-modal .gt-backdrop { display:block; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 139; }
+.gt-panel.open.gt-modal .gt-dialog { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 92vw; max-width: 560px; }
+
+/* Accessibility focus styles */
+.gt-close:focus, .translate-compact-btn:focus, .btn:focus { box-shadow: 0 0 0 3px rgba(6,142,221,0.15); }
+
+/* Dark mode support */
+body.dark-mode .translate-compact-btn { background: #1f2937; color: #f1f1f1; }
+body.dark-mode .gt-dialog { background: #2b3440; color: #f1f1f1; border: 1px solid rgba(255,255,255,0.04); }
+body.dark-mode .gt-widget select { background: transparent; color: #f1f1f1; border-color: rgba(255,255,255,0.06); }
+
 /* BREAKPOINTS */
 @media (max-width: 1200px) {
     html {
@@ -1231,6 +1279,8 @@ img {
         font-size: 2rem;
     }
 }
+
+
 
 
 
