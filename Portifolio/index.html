@@ -948,6 +948,15 @@
             body.dark-mode .complement-item span {
                 color: #f7fafc;
             }
+            /* Remover barras de progresso e deixar somente o texto centralizado */
+            .skill-box .skill-bar { display: none !important; }
+            .skill-box .fill { display: none !important; }
+            .skill-box small { display: none !important; }
+            .skill-box { justify-content: center; border-left: none; }
+            .skill-box span { min-width: auto; text-align: center; font-size: 1.6rem; }
+            @media (max-width: 617px) {
+                .skill-box span { font-size: 1.5rem; }
+            }
             </style>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
         </section>
