@@ -3,44 +3,50 @@
  * Por padrão, o site inicia no tema escuro
  */
 
-// Função para salvar a preferência do usuário no localStorage
-function saveThemePreference(isDarkMode) {
-    localStorage.setItem('darkMode', isDarkMode);
-}
-
-// Função para carregar a preferência do usuário
-function loadThemePreference() {
-    // Se não existir preferência salva, retorna true (modo escuro) por padrão
-    return localStorage.getItem('darkMode') === null ? true : localStorage.getItem('darkMode') === 'true';
-}
-
-// Aplicar tema com base na preferência salva ou no padrão (escuro)
-document.addEventListener('DOMContentLoaded', () => {
+ /* ============================================================
+   THEME – Dark / Light mode management
+   Persists preference in localStorage. Defaults to dark mode.
+   ============================================================ */
+(function initTheme() {
     const darkModeIcon = document.querySelector('#darkMode-icon');
-    
-    // Verificar se o elemento existe antes de prosseguir
-    if (!darkModeIcon) {
-        return;
+    if (!darkModeIcon) return;
+
+    /* ------ Persistence ------ */
+    function saveTheme(isDark) {
+        localStorage.setItem('darkMode', String(isDark));
     }
-    
-    // Verificar se há uma preferência salva
-    const isDarkMode = loadThemePreference();
-    
-    // Sempre aplicar modo escuro por padrão, ou seguir a preferência se existir
-    if (isDarkMode) {
-        document.body.classList.add('dark-mode');
-        darkModeIcon.classList.add('bx-sun');
-    } else {
-        document.body.classList.remove('dark-mode');
-        darkModeIcon.classList.remove('bx-sun');
+
+    function loadTheme() {
+        const saved = localStorage.getItem('darkMode');
+        return saved === null ? true : saved === 'true';
     }
-    
-    // Sobrescrever o evento onclick original para também salvar a preferência
+
+    /* ------ Apply theme ------ */
+    function applyTheme(isDark) {
+        document.body.classList.toggle('dark-mode', isDark);
+        darkModeIcon.classList.toggle('bx-sun', isDark);
+    }
+
+    /* ------ Toggle on click ------ */
     darkModeIcon.addEventListener('click', () => {
-        // Verificar estado após o clique (depois que o script.js executa o toggle)
-        setTimeout(() => {
-            const isDarkModeActive = document.body.classList.contains('dark-mode');
-            saveThemePreference(isDarkModeActive);
-        }, 0);
+        const isDark = !document.body.classList.contains('dark-mode');
+        applyTheme(isDark);
+        saveTheme(isDark);
     });
-});
+
+    /* ------ Keyboard accessibility ------ */
+    darkModeIcon.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            darkModeIcon.click();
+        }
+    });
+
+    /* ------ Init on DOMContentLoaded ------ */
+    document.addEventListener('DOMContentLoaded', () => {
+        applyTheme(loadTheme());
+    });
+
+    // Apply immediately (before DOMContentLoaded) to avoid flash
+    applyTheme(loadTheme());
+})();

@@ -129,53 +129,55 @@
         font-size: 1.6rem;
     }
     
-    /* Ajustes na caixa de idiomas */
+    /* ── Language Skills card ── */
     .language-skills {
         position: static !important;
         right: auto !important;
         bottom: auto !important;
-        margin: 3rem auto 1rem !important;
-        width: 90% !important;
-        min-width: auto !important;
-        max-width: 320px !important;
+        /* centre inside the flex column of .home-content */
+        width: calc(100% - 2rem) !important;
+        max-width: 340px !important;
+        min-width: unset !important;
+        margin: 2.5rem auto 1rem !important;
+        padding: 1.4rem 1.2rem !important;
         border-radius: 1rem !important;
-        padding: 1.5rem !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
         z-index: 5 !important;
-        box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.15) !important;
     }
-    
+
     .language-skills h3 {
-        font-size: 1.8rem !important;
-        margin-bottom: 1.5rem !important;
+        font-size: 1.7rem !important;
+        margin-bottom: 1.2rem !important;
         text-align: center !important;
     }
-    
+
+    /* Stack each bar vertically so nothing overflows */
     .language-bar {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.4rem !important;
         margin-bottom: 1.2rem !important;
     }
-    
+
     .language-bar:last-child {
         margin-bottom: 0 !important;
     }
-    
-    .language-bar span:first-child {
-        display: block !important;
+
+    .lang-name {
         width: 100% !important;
-        margin-bottom: 0.5rem !important;
         font-size: 1.4rem !important;
+        white-space: normal !important;
     }
-    
-    .language-bar div[style*="display:inline-block"] {
+
+    .lang-track {
         width: 100% !important;
-        display: block !important;
         height: 1.2rem !important;
     }
-    
-    .language-bar span:last-child {
-        display: block !important;
+
+    .lang-level {
         width: 100% !important;
         text-align: right !important;
-        margin: 0.5rem 0 0 !important;
         font-size: 1.3rem !important;
     }
     

@@ -1,176 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no, user-scalable=yes">
-    <meta name="description" content="Portfólio de Gabriel Arezi, desenvolvedor web, suporte técnico e infraestrutura de redes ">
+    <meta name="description" content="Portfólio de Gabriel Arezi, desenvolvedor web, suporte técnico e infraestrutura de redes.">
     <meta name="keywords" content="Portfólio, Gabriel Arezi, desenvolvedor web, suporte técnico, infraestrutura de redes, cloud computing">
     <meta name="author" content="Gabriel Arezi">
     <link rel="icon" href="img/mylogo.png" type="image/png">
 
-    <title>Meu Portfólio</title>
+    <title>Portfólio | Gabriel Arezi</title>
 
-    <!-- swiper css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 
-    <!-- box icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Boxicons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 
-    <!-- custom css -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- mobile optimized css -->
     <link rel="stylesheet" href="css/mobile.css">
-    <!-- mobile fixes css -->
     <link rel="stylesheet" href="css/fix-mobile.css">
-    <!-- project dark mode css -->
-    <link rel="stylesheet" href="css/project-dark-mode.css">
 </head>
 
 <body>
 
-    <!-- header design -->
+    <!-- ===== HEADER ===== -->
     <header class="header">
-        <a href="#" class="logo">Meu Portfólio.</a>
+        <a href="#" class="logo">Portfólio.</a>
 
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Navegação principal">
             <a href="#home" class="active">Home</a>
             <a href="#sobre-mim">Sobre mim</a>
             <a href="#recomendacoes">Recomendações</a>
             <a href="#services">Serviços</a>
             <a href="#courses">Certificações</a>
             <a href="#projects">Projetos</a>
-
-            
-            <!--<a href="#contact">Contato</a> -->
         </nav>
 
-        <div class="bx bx-moon" id="darkMode-icon"></div>
-
-        <div class="bx bx-menu" id="menu-icon"></div>
+        <i class="bx bx-moon" id="darkMode-icon" role="button" tabindex="0" aria-label="Alternar tema"></i>
+        <i class="bx bx-menu" id="menu-icon" role="button" tabindex="0" aria-label="Abrir menu" aria-expanded="false"></i>
     </header>
 
-    <!-- home section design -->
+    <!-- ===== HOME ===== -->
     <section class="home" id="home">
         <div class="home-content">
             <h3>Olá, Eu sou</h3>
             <h1>Gabriel Arezi</h1>
-            
-            <p>Seja muito bem vindo ao meu portifólio, aqui mostrarei um pouco da minha experiência e projetos.</p>
-           
-            <p> Estou sempre aberto a novos desafios e oportunidades de aprendizado. </p>
+            <p>Seja bem-vindo ao meu portfólio. Aqui você encontrará minha experiência e projetos.</p>
+            <p>Estou sempre aberto a novos desafios e oportunidades de aprendizado.</p>
 
             <div class="social-media">
-                
-                <a href="https://www.instagram.com/g.arezi/"><i class='bx bxl-instagram-alt'></i></a>
-                <a href="https://www.instagram.com/arezi_dev/"><i class='bx bxl-instagram-alt'></i></a>
-                <a href="https://github.com/g-arezi"><i class='bx bxl-github'></i></a>
+                <a href="https://www.instagram.com/g.arezi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram pessoal">
+                    <i class="bx bxl-instagram-alt"></i>
+                </a>
+                <a href="https://www.instagram.com/arezi_dev/" target="_blank" rel="noopener noreferrer" aria-label="Instagram dev">
+                    <i class="bx bxl-instagram-alt"></i>
+                </a>
+                <a href="https://github.com/g-arezi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="bx bxl-github"></i>
+                </a>
             </div>
 
-           <a href="https://www.linkedin.com/in/gabriel-arezi/" class="btn" target="_blank" style="display:inline-block;">Meu Linkedin</a>
-           <a href="https://wa.me/5527992231145?text=Ol%C3%A1%2C+Gabriel+gostaria+de+saber+mais+sobre+seus+servi%C3%A7os%21" target="_blank" class="btn" style="display:inline-block;"> WhatsApp</a>
-            
+            <a href="https://www.linkedin.com/in/gabriel-arezi/" class="btn" target="_blank" rel="noopener noreferrer">Meu LinkedIn</a>
+            <a href="https://wa.me/5527992231145?text=Ol%C3%A1%2C+Gabriel+gostaria+de+saber+mais+sobre+seus+servi%C3%A7os%21" class="btn" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </div>
 
         <div class="profession-container">
             <div class="profession-box">
                 <div class="profession" style="--i:0;">
-                    <i class='bx bx-code-alt'></i>
+                    <i class="bx bx-code-alt"></i>
                     <h3>FullStack Developer</h3>
                 </div>
             </div>
-
             <div class="overlay"></div>
         </div>
-        <!-- Compact translate button (added) -->
-        <div class="footer-translate">
-            <button id="translate-toggle" class="translate-compact-btn" aria-controls="gt-panel" aria-expanded="false" aria-label="Abrir tradução">
-                <i class='bx bx-world'></i>
-                <span class="translate-label">Translate</span>
-            </button>
-        </div>
-        <div class="language-skills" style="position: absolute; right: 2rem; bottom: 2rem; margin-top:2rem; background:rgba(255,255,255,0.95); border-radius:1rem; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:1.2rem 1.5rem; z-index:10; min-width:300px;">
 
-            <h3 style="margin-bottom:1rem; color: #222;">Idiomas</h3>
+        <!-- Language Skills Card -->
+        <div class="language-skills">
+            <h3>Idiomas</h3>
 
-            <div class="language-bar" style="margin-bottom:1rem;">
-            <span style="display:inline-block;width:90px; color: #222;">Português(PT-BR)</span>
-            <div style="display:inline-block;width:200px;height:18px;background:#e0e0e0;border-radius:9px;vertical-align:middle;overflow:hidden;">
-            <div style="width:100%;height:100%;background:#00abf0;border-radius:9px 0 0 9px;"></div>
-            </div>
-            <span style="margin-left:10px;font-weight:600;color:#00abf0;">Nativo</span>
-            </div>
-
-            <div class="language-bar" style="margin-bottom:1rem;">
-            <span style="display:inline-block;width:90px; color: #222;">Inglês</span>
-            <div style="display:inline-block;width:200px;height:18px;background:#e0e0e0;border-radius:9px;vertical-align:middle;overflow:hidden;">
-            <div style="width:45%;height:100%;background:#00abf0;border-radius:9px 0 0 9px;"></div>
-            </div>
-            <span style="margin-left:10px;font-weight:600;color:#00abf0;">Intermediário</span>
+            <div class="language-bar">
+                <span class="lang-name">Português (PT-BR)</span>
+                <div class="lang-track">
+                    <div class="lang-fill" style="width: 100%"></div>
+                </div>
+                <span class="lang-level">Nativo</span>
             </div>
 
             <div class="language-bar">
-            <span style="display:inline-block;width:90px; color: #222;">Espanhol</span>
-            <div style="display:inline-block;width:200px;height:18px;background:#e0e0e0;border-radius:9px;vertical-align:middle;overflow:hidden;">
-            <div style="width:60%;height:100%;background:#00abf0;border-radius:9px 0 0 9px;"></div>
-            </div>
-            <span style="margin-left:10px;font-weight:600;color:#00abf0;">Intermediário</span>
+                <span class="lang-name">Inglês</span>
+                <div class="lang-track">
+                    <div class="lang-fill" style="width: 45%"></div>
+                </div>
+                <span class="lang-level">Intermediário</span>
             </div>
 
+            <div class="language-bar">
+                <span class="lang-name">Espanhol</span>
+                <div class="lang-track">
+                    <div class="lang-fill" style="width: 60%"></div>
+                </div>
+                <span class="lang-level">Intermediário</span>
+            </div>
         </div>
-        <style>
-        body.dark-mode .language-skills {
-            background: rgba(35, 39, 47, 0.98) !important;
-            color: #f1f1f1 !important;
-        }
-        body.dark-mode .language-skills h3,
-        body.dark-mode .language-skills span {
-            color: #f1f1f1 !important;
-        }
-        body.dark-mode .language-skills .language-bar span:last-child {
-            color: #00abf0 !important;
-        }
-        body.dark-mode .language-skills .language-bar div[style*="background:#e0e0e0"] {
-            background: #2a3b4d !important;
-        }
-        </style>
+
+
         <div class="home-img">
             <img src="" alt="">
         </div>
     </section>
 
-    <!-- about section design -->
+    <!-- ===== ABOUT ===== -->
     <section class="sobre-mim" id="sobre-mim">
-        <div class="about-img">
-            <img src="" alt="">
-        </div>
 
         <div class="about-content">
-            <h2 class="heading"> Mais Sobre  <span>mim</span> </h2>
-            
-            <h3>
-                Aqui está algumas informações sobre mim e o que eu faço.
-            </h3>
-            
+            <h2 class="heading">Mais Sobre <span>mim</span></h2>
+            <h3>Aqui estão algumas informações sobre mim e o que faço.</h3>
             <p>
-                Tenho alguns certificados, como Desenvolvedor backend, Java, C#, C++,.NET Framework 4.x.x, node.js, MySql, Next.js, TypeScript, Php, Infraestrutura de Redes, e tenho experiência também em banco de dados, como MySQL, PostgreSQL e SQL Server.
-                Estou sempre buscando aprender e me atualizar nas novas tecnologias e tendências do mercado.
-                Estou aberto a novos desafios e oportunidades de aprendizado.
+                Possuo certificações em Desenvolvimento Backend, Java, C#, C++, .NET Framework, Node.js, MySQL,
+                Next.js, TypeScript, PHP e Infraestrutura de Redes. Tenho experiência com bancos de dados MySQL,
+                PostgreSQL e SQL Server. Estou sempre buscando aprender e me atualizar nas novas tecnologias e
+                tendências do mercado.
             </p>
-            <p> Logo Abaixo estão algumas das minhas habilidades e serviços que ofereço.</p>
+            <p>Logo abaixo estão algumas das minhas habilidades e serviços que ofereço.</p>
         </div>
 
+        <!-- ===== SKILLS ===== -->
         <section id="habilidades" class="skills">
             <div class="section-title">
                 <h2>Minhas Habilidades</h2>
                 <div class="underline"></div>
             </div>
-            
-            <!-- Diagrama Clássico de Habilidades -->
+
             <div class="skills-diagram-classic">
-                
-                <!-- Nível 1 - Perfil Principal -->
+
+                <!-- Level 1 – Main Profile -->
                 <div class="diagram-level level-1">
                     <div class="main-profile">
                         <div class="profile-box">
@@ -180,8 +149,8 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Conectores Nível 1 para Nível 2 -->
+
+                <!-- Connectors: Level 1 → 2 -->
                 <div class="connectors level-1-to-2">
                     <div class="connector-line horizontal-main"></div>
                     <div class="connector-branch left"></div>
@@ -189,8 +158,8 @@
                     <div class="connector-branch center-right"></div>
                     <div class="connector-branch right"></div>
                 </div>
-                
-                <!-- Nível 2 - Categorias Principais -->
+
+                <!-- Level 2 – Categories -->
                 <div class="diagram-level level-2">
                     <div class="category-box frontend">
                         <i class="fas fa-laptop-code"></i>
@@ -205,10 +174,9 @@
                         <h4>Database</h4>
                     </div>
                 </div>
-                
-                <!-- Conectores Nível 2 para Nível 3 -->
+
+                <!-- Connectors: Level 2 → 3 -->
                 <div class="connectors level-2-to-3">
-                    <!-- Frontend Connectors -->
                     <div class="connector-group frontend-connectors">
                         <div class="connector-line vertical"></div>
                         <div class="connector-line horizontal-sub"></div>
@@ -217,8 +185,6 @@
                         <div class="connector-branch sub-center-right"></div>
                         <div class="connector-branch sub-right"></div>
                     </div>
-                    
-                    <!-- Backend Connectors -->
                     <div class="connector-group backend-connectors">
                         <div class="connector-line vertical"></div>
                         <div class="connector-line horizontal-sub"></div>
@@ -227,8 +193,6 @@
                         <div class="connector-branch sub-center-right"></div>
                         <div class="connector-branch sub-right"></div>
                     </div>
-                    
-                    <!-- Database Connectors -->
                     <div class="connector-group database-connectors">
                         <div class="connector-line vertical"></div>
                         <div class="connector-line horizontal-sub"></div>
@@ -236,1239 +200,278 @@
                         <div class="connector-branch sub-center"></div>
                         <div class="connector-branch sub-right"></div>
                     </div>
-                    
                 </div>
-                
-                <!-- Nível 3 - Habilidades Específicas -->
-                <div class="diagram-level level-3">
-                    
-                    <!-- Frontend Skills -->
-                    <div class="skills-group frontend-skills">
-                        <div class="skill-box">
-                            <i class="fab fa-js"></i>
-                            <span>JavaScript</span>
-                            <div class="skill-bar"><div class="fill" data-level="intermediario"></div></div>
-                             
-                        </div>
-                        <div class="skill-box">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
-                            <div class="skill-bar"><div class="fill" data-level="avancado"></div></div>
-                             
-                        </div>
-                        <div class="skill-box">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
-                            <div class="skill-bar"><div class="fill" data-level="avancado"></div></div>
-                             
-                        </div>
-                        <div class="skill-box">
-                            <i class="fab fa-react"></i>
-                            <span>React.js</span>
-                            <div class="skill-bar"><div class="fill" data-level="intermediario"></div></div>
-                             
-                        </div>
-                    </div>
-                    
-                    <!-- Backend Skills -->
-                    <div class="skills-group backend-skills">
-                        <div class="skill-box">
-                            <i class="fab fa-node-js"></i>
-                            <span>Node.js</span>
-                            <div class="skill-bar"><div class="fill" data-level="intermediario"></div></div>
-                             
-                        </div>
-                        <div class="skill-box">
-                            <i class="fab fa-php"></i>
-                            <span>PHP</span>
-                            <div class="skill-bar"><div class="fill" data-level="avancado"></div></div>
-                             
-                        </div>
-                        <div class="skill-box">
-                            <i class="fas fa-code"></i>
-                            <span>C#</span>
-                            <div class="skill-bar"><div class="fill" data-level="avancado"></div></div>
-                             
-                        </div>
-                        <div class="skill-box">
-                            <i class="fab fa-java"></i>
-                            <span>Java</span>
-                            <div class="skill-bar"><div class="fill" data-level="avancado"></div></div>
-                             
-                        </div>
-                       
-                    </div>
-                    
-                    <!-- Database Skills -->
-                    <div class="skills-group database-skills">
-                        <div class="skill-box">
-                            <i class="fas fa-database"></i>
-                            <span>MySQL</span>
-                            <div class="skill-bar"><div class="fill" data-level="intermediario"></div></div>
-                             
-                        </div>
-                        <div class="skill-box">
-                            <i class="fas fa-database"></i>
-                            <span>PostgreSQL</span>
-                            <div class="skill-bar"><div class="fill" data-level="intermediario"></div></div>
-                             
-                        </div>
-                        <div class="skill-box">
-                            <i class="fas fa-server"></i>
-                            <span>SQL Server</span>
-                            <div class="skill-bar"><div class="fill" data-level="avancado"></div></div>
-                             
-                        </div>
-                    </div>
 
-            
+                <!-- Level 3 – Specific Skills -->
+                <div class="diagram-level level-3">
+                    <div class="skills-group frontend-skills">
+                        <div class="skill-box"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                        <div class="skill-box"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                        <div class="skill-box"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                        <div class="skill-box"><i class="fab fa-react"></i><span>React.js</span></div>
+                    </div>
+                    <div class="skills-group backend-skills">
+                        <div class="skill-box"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                        <div class="skill-box"><i class="fab fa-php"></i><span>PHP</span></div>
+                        <div class="skill-box"><i class="fas fa-code"></i><span>C#</span></div>
+                        <div class="skill-box"><i class="fab fa-java"></i><span>Java</span></div>
+                    </div>
+                    <div class="skills-group database-skills">
+                        <div class="skill-box"><i class="fas fa-database"></i><span>MySQL</span></div>
+                        <div class="skill-box"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
+                        <div class="skill-box"><i class="fas fa-server"></i><span>SQL Server</span></div>
+                    </div>
                 </div>
-                
-                <!-- Nível 4 - Tecnologias Complementares -->
+
+                <!-- Level 4 – Complementary Technologies -->
                 <div class="diagram-level level-4">
                     <div class="complement-section">
                         <h4>Tecnologias Complementares</h4>
                         <div class="complement-skills">
-                            <div class="complement-item">
-                                <i class="fab fa-aws"></i>
-                                <span>AWS</span>
-                            </div>
+                            <div class="complement-item"><i class="fab fa-aws"></i><span>AWS</span></div>
+                            <div class="complement-item"><i class="fab fa-node-js"></i><span>Next.js</span></div>
+                            <div class="complement-item"><i class="fab fa-java"></i><span>Spring Boot</span></div>
+                            <div class="complement-item"><i class="fab fa-java"></i><span>Hibernate</span></div>
+                            <div class="complement-item"><i class="fab fa-microsoft"></i><span>Azure</span></div>
+                            <div class="complement-item"><i class="fas fa-network-wired"></i><span>Redes</span></div>
+                            <div class="complement-item"><i class="fab fa-wordpress"></i><span>WordPress</span></div>
+                            <div class="complement-item"><i class="fab fa-linux"></i><span>Linux</span></div>
+                            <div class="complement-item"><i class="fab fa-windows"></i><span>Windows</span></div>
+                            <div class="complement-item"><i class="fab fa-github"></i><span>Git</span></div>
+                            <div class="complement-item"><i class="fas fa-robot"></i><span>n8n</span></div>
+                            <div class="complement-item"><i class="fab fa-node-js"></i><span>NestJS</span></div>
+                            <div class="complement-item"><i class="fa-brands fa-angular"></i><span>Angular</span></div>
+                        </div>
+                    </div>
+                </div>
 
-                            <div class="complement-item">
-                                <i class="fab fa-node-js"></i>
-                                <span>Next.js</span>
-                            </div>
-
-                            <div class="complement-item">
-                                <i class="fab fa-java"></i>
-                                <span>Spring Boot</span>
-                            </div>
-
-                            <div class="complement-item">
-                                <i class="fab fa-java"></i>
-                                <span>Hibernate</span>
-                            </div>
-
-                            <div class="complement-item">
-                                <i class="fab fa-microsoft"></i>
-                                <span>Azure</span>
-                            </div>
-
-                            <div class="complement-item">
-                                <i class="fas fa-network-wired"></i>
-                                <span>Redes</span>
-                            </div>
-
-                            <div class="complement-item">
-                                <i class="fab fa-wordpress"></i>
-                               <span>WordPress</span>
-                            </div>
-
-                            <div class="complement-item">
-                                <i class="fab fa-linux"></i>
-                                <span>Linux</span>
-                            </div>
-
-                            <div class="complement-item">
-                                <i class="fab fa-windows"></i>
-                                <span>Windows</span>
-                            </div>
-
-                            <div class="complement-item">
-                                <i class="fab fa-github"></i>
-                                <span>Git</span>
-                            </div>
-
-                            <div class="complement-item">
-                                <i class="fas fa-robot"></i>
-                                <span>n8n</span>
-                            </div>
-
-                            <div class="complement-item">
-                                <i class="fab fa-node-js"></i>
-                                <span>NestJS</span>
-                             </div>
-
-                             <div class="complement-item">
-                                <i class="fa-brands fa-angular"></i>
-                                <span>Angular</span>
-                            </div>
-                        </div> <!-- .complement-skills -->
-                    </div> <!-- .complement-section -->
-                </div> <!-- .diagram-level.level-4 -->
-            </div> <!-- .skills-diagram-classic -->
-
+            </div>
+        </section>
     </section>
 
-            <style>
-            /* CSS do Diagrama Clássico - Seguindo o Layout da Página */
-            .skills {
-                min-height: auto;
-                padding: 10rem 7% 5rem;
-                background: var(--bg-color);
-            }
-            
-            .section-title {
-                text-align: center;
-                margin-bottom: 5rem;
-            }
-            
-            .section-title h2 {
-                font-size: 4.5rem;
-                color: var(--text-color);
-                font-weight: 700;
-                line-height: 1.2;
-            }
-            
-            .section-title .underline {
-                width: 6rem;
-                height: 0.4rem;
-                background: var(--main-color);
-                margin: 1rem auto 0 auto;
-                border-radius: 0.2rem;
-            }
-            
-            /* Container do Diagrama */
-            .skills-diagram-classic {
-                max-width: 1400px;
-                margin: 0 auto;
-                padding: 2rem;
-                position: relative;
-            }
-            
-            /* Níveis do Diagrama */
-            .diagram-level {
-                margin-bottom: 3rem;
-                position: relative;
-            }
-            
-            /* Nível 1 - Perfil Principal */
-            .level-1 {
-                display: flex;
-                justify-content: center;
-                margin-bottom: 2rem;
-            }
-            
-            .main-profile {
-                position: relative;
-            }
-            
-            .profile-box {
-                background: var(--main-color);
-                color: var(--white-color);
-                padding: 3rem 4rem;
-                border-radius: 1rem;
-                text-align: center;
-                box-shadow: 0 0.5rem 1.5rem var(--shadow-color);
-                border: 0.3rem solid transparent;
-                position: relative;
-                z-index: 10;
-                transition: 0.5s ease;
-            }
-            
-            .profile-box:hover {
-                transform: translateY(-0.5rem);
-                box-shadow: 0 1rem 2rem var(--shadow-color);
-            }
-            
-            .profile-box i {
-                font-size: 4rem;
-                margin-bottom: 1.5rem;
-                display: block;
-            }
-            
-            .profile-box h3 {
-                font-size: 2.5rem;
-                font-weight: 700;
-                margin-bottom: 0.8rem;
-            }
-            
-            .profile-box p {
-                font-size: 1.6rem;
-                opacity: 0.9;
-            }
-            
-            /* Conectores */
-            .connectors {
-                position: relative;
-                height: 4rem;
-                margin: 1rem 0;
-                z-index: 1;
-            }
-            
-            .connector-line {
-                background: var(--main-color);
-                position: absolute;
-                border-radius: 0.2rem;
-                box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
-                opacity: 0.8;
-            }
-            
-            .horizontal-main {
-                top: 50%;
-                left: 20%;
-                right: 20%;
-                height: 0.3rem;
-                transform: translateY(-50%);
-            }
-            
-            .connector-branch {
-                width: 0.3rem;
-                height: 2.5rem;
-                background: var(--main-color);
-                position: absolute;
-                top: 50%;
-                border-radius: 0.15rem;
-                box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
-                opacity: 0.8;
-            }
-            
-            .level-1-to-2 .left { left: 20%; }
-            .level-1-to-2 .center-left { left: 40%; }
-            .level-1-to-2 .center-right { right: 40%; }
-            .level-1-to-2 .right { right: 20%; }
-            
-            /* Nível 2 - Categorias */
-            .level-2 {
-                display: flex;
-                justify-content: space-between;
-                gap: 2rem;
-                margin-bottom: 2rem;
-            }
-            
-            .category-box {
-                background: var(--white-color);
-                padding: 2rem 1.5rem;
-                border-radius: 1rem;
-                text-align: center;
-                flex: 1;
-                box-shadow: 0 0.5rem 1.5rem var(--shadow-color);
-                border: 0.2rem solid transparent;
-                transition: 0.5s ease;
-                position: relative;
-            }
-            
-            .category-box:hover {
-                transform: translateY(-0.5rem);
-                box-shadow: 0 1rem 2rem var(--shadow-color);
-                border-color: var(--main-color);
-            }
-            
-            .category-box.frontend { border-top: 0.4rem solid var(--main-color); }
-            .category-box.backend { border-top: 0.4rem solid var(--main-color); }
-            .category-box.database { border-top: 0.4rem solid var(--main-color); }
-            .category-box.design { border-top: 0.4rem solid var(--main-color); }
-            
-            .category-box i {
-                font-size: 3rem;
-                margin-bottom: 1.5rem;
-                display: block;
-                color: var(--main-color);
-            }
-            
-            .category-box h4 {
-                font-size: 1.8rem;
-                font-weight: 700;
-                color: var(--text-color);
-                margin: 0;
-            }
-            
-            /* Conectores Nível 2 para 3 */
-            .level-2-to-3 {
-                display: flex;
-                justify-content: space-between;
-                height: 60px;
-                margin: 1rem 0;
-            }
-            
-            .connector-group {
-                flex: 1;
-                position: relative;
-                margin: 0 1rem;
-            }
-            
-            .connector-group .vertical {
-                width: 3px;
-                height: 30px;
-                left: 50%;
-                top: 0;
-                transform: translateX(-50%);
-                background: linear-gradient(180deg, #4a5568, #718096);
-                border-radius: 1.5px;
-            }
-            
-            .connector-group .horizontal-sub {
-                height: 3px;
-                left: 10%;
-                right: 10%;
-                top: 30px;
-                background: linear-gradient(90deg, transparent, #4a5568, transparent);
-                border-radius: 1.5px;
-            }
-            
-            .connector-group .sub-left { left: 10%; top: 30px; }
-            .connector-group .sub-center-left { left: 35%; top: 30px; }
-            .connector-group .sub-center { left: 50%; top: 30px; transform: translateX(-50%); }
-            .connector-group .sub-center-right { right: 35%; top: 30px; }
-            .connector-group .sub-right { right: 10%; top: 30px; }
-            
-            /* Nível 3 - Habilidades */
-            .level-3 {
-                display: flex;
-                justify-content: space-between;
-                gap: 2rem;
-                margin-bottom: 3rem;
-            }
-            
-            .skills-group {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .skill-box {
-                background: var(--white-color);
-                padding: 1.5rem;
-                border-radius: 1rem;
-                box-shadow: 0 0.5rem 1.5rem var(--shadow-color);
-                border-left: 0.4rem solid var(--main-color);
-                transition: 0.5s ease;
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                min-height: 7rem;
-            }
-            
-            .skill-box:hover {
-                transform: translateX(0.5rem);
-                box-shadow: 0 1rem 2rem var(--shadow-color);
-            }
-            
-            .skill-box i {
-                font-size: 2rem;
-                width: 4rem;
-                text-align: center;
-                color: var(--main-color);
-            }
-            
-            .skill-box span {
-                font-weight: 600;
-                color: var(--text-color);
-                min-width: 10rem;
-                font-size: 1.4rem;
-            }
-            
-            .skill-bar {
-                flex: 1;
-                height: 0.8rem;
-                background: rgba(6, 142, 221, 0.1);
-                border-radius: 0.4rem;
-                overflow: hidden;
-                margin: 0 0.5rem;
-                position: relative;
-            }
-            
-            .skill-bar .fill {
-                height: 100%;
-                border-radius: 0.4rem;
-                transition: width 2s ease-out;
-                position: relative;
-                background: var(--main-color);
-            }
-            
-            .skill-box small {
-                font-weight: 700;
-                color: var(--main-color);
-                font-size: 1.2rem;
-                min-width: 4rem;
-                text-align: right;
-            }
-            
-            /* Nível 4 - Complementares */
-            .level-4 {
-                text-align: center;
-                margin-top: 4rem;
-            }
-            
-            .complement-section {
-                background: var(--white-color);
-                padding: 3rem 2rem;
-                border-radius: 1rem;
-                box-shadow: 0 0.5rem 1.5rem var(--shadow-color);
-                border: 0.2rem solid transparent;
-                transition: 0.5s ease;
-            }
-            
-            .complement-section:hover {
-                border-color: var(--main-color);
-                transform: translateY(-0.5rem);
-            }
-            
-            .complement-section h4 {
-                font-size: 2.2rem;
-                font-weight: 700;
-                color: var(--text-color);
-                margin-bottom: 2rem;
-            }
-            
-            .complement-skills {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 2rem;
-            }
-            
-            .complement-item {
-                background: var(--bg-color);
-                padding: 1.5rem;
-                border-radius: 1rem;
-                text-align: center;
-                min-width: 14rem;
-                border: 0.2rem solid transparent;
-                transition: 0.5s ease;
-                box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
-            }
-            
-            .complement-item:hover {
-                transform: translateY(-0.3rem);
-                border-color: var(--main-color);
-                box-shadow: 0 0.5rem 1rem var(--shadow-color);
-            }
-            
-            .complement-item i {
-                font-size: 2.5rem;
-                color: var(--main-color);
-                margin-bottom: 1rem;
-                display: block;
-            }
-            
-            .complement-item span {
-                font-weight: 600;
-                color: var(--text-color);
-                font-size: 1.4rem;
-                display: block;
-                margin-bottom: 0.5rem;
-            }
-            
-            .complement-item small {
-                font-weight: 700;
-                color: var(--main-color);
-                font-size: 1.2rem;
-            }
-            
-            /* Animações */
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            
-            .skill-box, .category-box, .complement-item {
-                animation: fadeInUp 0.6s ease-out;
-            }
-            
-            /* Animação das barras de progresso */
-            .skill-bar .fill[data-level] {
-                animation: fillBar 2s ease-out 0.5s both;
-            }
-            
-            @keyframes fillBar {
-                from { width: 0%; }
-            }
-            
-            .skill-bar .fill[data-level="intermediario"] { width: 50%; }
-            .skill-bar .fill[data-level="avancado"] { width: 75%; }
-            
-            /* Responsividade */
-            @media (max-width: 1200px) {
-                .skills {
-                    padding: 8rem 5% 4rem;
-                }
-                
-                .section-title h2 {
-                    font-size: 3.5rem;
-                }
-                
-                .skills-diagram-classic {
-                    padding: 2rem 0;
-                }
-            }
-            
-            @media (max-width: 991px) {
-                .skills {
-                    padding: 6rem 3% 3rem;
-                }
-                
-                .section-title h2 {
-                    font-size: 3rem;
-                }
-                
-                .level-2, .level-3 {
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 2rem;
-                }
-                
-                .category-box, .skills-group {
-                    max-width: 40rem;
-                    width: 100%;
-                }
-                
-                .connectors {
-                    display: none;
-                }
-            }
-            
-            @media (max-width: 617px) {
-                .section-title h2 {
-                    font-size: 2.5rem;
-                }
-                
-                .profile-box {
-                    padding: 2rem 2.5rem;
-                }
-                
-                .profile-box h3 {
-                    font-size: 2rem;
-                }
-                
-                .skill-box {
-                    padding: 1rem;
-                    min-height: 6rem;
-                }
-                
-                .complement-skills {
-                    gap: 1rem;
-                }
-                
-                .complement-item {
-                    min-width: 12rem;
-                }
-            }
-            
-            /* Dark Mode Support */
-            .dark-mode .section-title h2 {
-                color: var(--text-color);
-            }
-            
-            .dark-mode .profile-box {
-                background: var(--main-color);
-                color: var(--white-color);
-            }
-            
-            .dark-mode .category-box {
-                background: rgba(255, 255, 255, 0.05);
-                color: var(--text-color);
-                border-color: rgba(255, 255, 255, 0.1);
-            }
-            
-            .dark-mode .category-box:hover {
-                border-color: var(--main-color);
-                background: rgba(255, 255, 255, 0.08);
-            }
-            
-            .dark-mode .skill-box {
-                background: rgba(255, 255, 255, 0.05);
-                color: var(--text-color);
-            }
-            
-            .dark-mode .skill-box:hover {
-                background: rgba(255, 255, 255, 0.08);
-            }
-            
-            .dark-mode .complement-section {
-                background: rgba(255, 255, 255, 0.05);
-                color: var(--text-color);
-            }
-            
-            .dark-mode .complement-item {
-                background: rgba(255, 255, 255, 0.03);
-                color: var(--text-color);
-            }
-            
-            .dark-mode .complement-item:hover {
-                background: rgba(255, 255, 255, 0.08);
-            }
-            
-            @media (max-width: 768px) {
-                .skills-diagram-classic {
-                    padding: 1rem;
-                }
-                
-                .profile-box {
-                    padding: 1.5rem 2rem;
-                }
-                
-                .level-2, .level-3 {
-                    flex-direction: column;
-                    align-items: center;
-                }
-                
-                .complement-skills {
-                    flex-direction: column;
-                    align-items: center;
-                }
-                
-                .connectors {
-                    display: none;
-                }
-                
-                .section-title h2 {
-                    font-size: 2rem;
-                }
-            }
-            
-            /* Dark mode support */
-            body.dark-mode .skills {
-                background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-            }
-            
-            body.dark-mode .category-box,
-            body.dark-mode .skill-box,
-            body.dark-mode .complement-section,
-            body.dark-mode .complement-item {
-                background: #2d3748;
-                color: #f7fafc;
-                border-color: #4a5568;
-            }
-            
-            body.dark-mode .section-title h2 {
-                color: #f7fafc;
-            }
-            
-            body.dark-mode .skill-box span,
-            body.dark-mode .category-box h4,
-            body.dark-mode .complement-section h4,
-            body.dark-mode .complement-item span {
-                color: #f7fafc;
-            }
-            /* Remover barras de progresso e deixar somente o texto centralizado */
-            .skill-box .skill-bar { display: none !important; }
-            .skill-box .fill { display: none !important; }
-            .skill-box small { display: none !important; }
-            .skill-box { justify-content: center; border-left: none; }
-            .skill-box span { min-width: auto; text-align: center; font-size: 1.6rem; }
-            @media (max-width: 617px) {
-                .skill-box span { font-size: 1.5rem; }
-            }
-            </style>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-        </section>
-
-
-    <!-- Recomendações section design -->
+    <!-- ===== RECOMMENDATIONS ===== -->
     <section class="recomendacoes" id="recomendacoes">
         <div class="testimonial-container">
             <h2 class="heading">Minhas <span>Recomendações</span></h2>
             <div class="underline"></div>
+
             <div class="testimonial-wrapper">
                 <div class="testimonial-box mySwiper">
-                    <!-- WorkBestGames -->
                     <div class="testimonial-content swiper-wrapper">
+
+                        <!-- WorkBestGames -->
                         <div class="testimonial-slide swiper-slide">
-                            <img src="img/wbg.png" alt="">
+                            <img src="img/wbg.png" alt="Logo WorkBestGames">
                             <h3>WorkBestGames</h3>
                             <h1>Rafael Candido</h1>
-                            <p>Além de ser um profissional competente e proativo, ele também tem um excelente olhar para design e experiência do usuário, o que fez toda a diferença na criação de interfaces modernas e funcionais. O mesmo foi ágil, atencioso e sempre disposto a propor soluções criativas para os desafios que surgiram.</p>
-                            <p>Recomendamos fortemente o trabalho do <strong> Gabriel</strong> para qualquer empresa que busque um desenvolvedor comprometido, versátil e com visão ampla em tecnologia. Ele, sem dúvida, agregou muito valor aos nossos projetos.</p>
-                            <a href="https://www.linkedin.com/in/RafaelTuber/"><i class='bx bxl-linkedin'></i> Linkedin</a>
-                            <a href="https://github.com/RafaelTuber"><i class='bx bxl-github'></i> Github</a>
-                            
+                            <p>Além de ser um profissional competente e proativo, ele também tem um excelente olhar para design e experiência do usuário, o que fez toda a diferença na criação de interfaces modernas e funcionais. Foi ágil, atencioso e sempre disposto a propor soluções criativas para os desafios que surgiram.</p>
+                            <p>Recomendamos fortemente o trabalho do <strong>Gabriel</strong> para qualquer empresa que busque um desenvolvedor comprometido, versátil e com visão ampla em tecnologia. Ele, sem dúvida, agregou muito valor aos nossos projetos.</p>
+                            <a href="https://www.linkedin.com/in/RafaelTuber/" target="_blank" rel="noopener noreferrer"><i class="bx bxl-linkedin"></i> LinkedIn</a>
+                            <a href="https://github.com/RafaelTuber" target="_blank" rel="noopener noreferrer"><i class="bx bxl-github"></i> GitHub</a>
                         </div>
+
                         <!-- It Soluções Digitais -->
                         <div class="testimonial-slide swiper-slide">
-                            <img src="img/itstd.png" alt="">
+                            <img src="img/itstd.png" alt="Logo It Soluções Digitais">
                             <h3>It Soluções Digitais</h3>
                             <h1>Israel Ferreira</h1>
-                            
-                                <p><strong>Gabriel</strong> É um profissional altamente competente e dedicado. </p>
-                                <p>Atua com excelência como programador, sempre apresentando soluções criativas, eficientes e com um olhar proativo para os desafios.</p>
-                                <p>Em todos os projetos em que esteve envolvido, demonstrou comprometimento, iniciativa e qualidade técnica. </p>
-                                <p>Sem dúvida, agregou muito valor às entregas da nossa empresa.</p>
-                                <p>Recomendo fortemente o seu trabalho.</p>
-
-                            <a href="https://www.linkedin.com/company/agenciaitd"> <i class="bx bxl-linkedin"></i> Linkedin</a>
-                            
-                            
+                            <p><strong>Gabriel</strong> é um profissional altamente competente e dedicado.</p>
+                            <p>Atua com excelência como programador, sempre apresentando soluções criativas, eficientes e com um olhar proativo para os desafios.</p>
+                            <p>Em todos os projetos em que esteve envolvido, demonstrou comprometimento, iniciativa e qualidade técnica.</p>
+                            <p>Sem dúvida, agregou muito valor às entregas da nossa empresa. Recomendo fortemente o seu trabalho.</p>
+                            <a href="https://www.linkedin.com/company/agenciaitd" target="_blank" rel="noopener noreferrer"><i class="bx bxl-linkedin"></i> LinkedIn</a>
                         </div>
+
                     </div>
-                
-                    <!-- Ícones de navegação para indicar múltiplas recomendações -->
+
                     <div class="testimonial-navigation">
-                        <button class="testimonial-prev" aria-label="Recomendação anterior" style="background:none;border:none;cursor:pointer;font-size:2rem;color:#00abf0;">
+                        <button class="testimonial-prev" aria-label="Recomendação anterior">
                             <i class="fas fa-chevron-left"></i>
                         </button>
-                        
-                        <button class="testimonial-next" aria-label="Próxima recomendação" style="background:none;border:none;cursor:pointer;font-size:2rem;color:#00abf0;">
+                        <button class="testimonial-next" aria-label="Próxima recomendação">
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
-                    <style>
-                  
-                    </style>
                 </div>
             </div>
         </div>
-        
-      </section>
+    </section>
 
+    <!-- ===== SERVICES ===== -->
     <section class="services" id="services">
         <h2 class="heading">Meus <span>Serviços</span></h2>
 
         <div class="services-container">
             <div class="services-box">
-                <i class='bx bx-code-alt'></i>
+                <i class="bx bx-code-alt"></i>
                 <h3>Desenvolvedor Full Stack</h3>
-                <p>Desenvolvo sites e softwares, utilizando as melhores práticas de desenvolvimento.</p>
-                <p><strong> Desenvolvedor Frontend:</strong> HTML5, CSS3, JavaScript, React, Next.js, TypeScript e Php.</p>
-                <p><strong> Desenvolvedor Backend:</strong> Desenvolvo em C#, C++, .NET Framework 4.x.x, node.js, MySql, Next.js, TypeScript, Php, e tenho experiência também em banco de dados, como MySQL, PostgreSQL e SQL Server.</p>
-                <p><strong> Outras Tecnologias:</strong> Docker, Kubernetes, Git, CI/CD, RESTful APIs, GraphQL, e metodologias ágeis (Scrum e Kanban).</p>
-                
-
+                <p>Desenvolvo sites e softwares utilizando as melhores práticas de desenvolvimento.</p>
+                <p><strong>Frontend:</strong> HTML5, CSS3, JavaScript, React, Next.js, TypeScript e PHP.</p>
+                <p><strong>Backend:</strong> C#, C++, .NET Framework, Node.js, TypeScript e PHP, com experiência em MySQL, PostgreSQL e SQL Server.</p>
+                <p><strong>Outras Tecnologias:</strong> Docker, Kubernetes, Git, CI/CD, RESTful APIs, GraphQL e metodologias ágeis (Scrum e Kanban).</p>
             </div>
+
             <div class="services-box">
-                <i class='fa fa-robot'></i>
+                <i class="fa fa-robot"></i>
                 <h3>Automação</h3>
-                <p>Criação de fluxos de automação para otimizar processos empresariais, utilizando ferramentas como n8n e Zapier.</p>
-                <p>Desenvolvimento de scripts personalizados para automação de tarefas repetitivas, aumentando a eficiência operacional.</p>
-                <p>Integração de sistemas e APIs para facilitar a comunicação entre diferentes plataformas.</p>
-                <p>ChatBots para atendimento automatizado e suporte ao cliente.(WhatsApp, Telegram e Instagram)</p>
- 
+                <p>Criação de fluxos de automação para otimizar processos empresariais com n8n e Zapier.</p>
+                <p>Desenvolvimento de scripts personalizados para automação de tarefas repetitivas.</p>
+                <p>Integração de sistemas e APIs para facilitar a comunicação entre plataformas.</p>
+                <p>ChatBots para atendimento automatizado via WhatsApp, Telegram e Instagram.</p>
             </div>
-
-
         </div>
-        <style>
-            .services-container {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 2rem;
-                justify-content: center;
-            }
-            .services-box {
-                background: var(--container-color, #fff);
-                border-radius: 1rem;
-                box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-                padding: 2rem 1.5rem;
-                width: 320px;
-                min-height: 420px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-            }
-            .services-box i {
-                font-size: 3.2rem;
-                color: var(--main-color, #00abf0);
-                margin-bottom: 1.2rem;
-            }
-            .services-box h3 {
-                font-size: 2rem;
-                margin-bottom: 0.9rem;
-                font-weight: 700;
-                letter-spacing: 0.5px;
-            }
-            .services-box p {
-                font-size: 1.8rem; /* maior para melhor visualização */
-                margin-bottom: 0.7rem;
-                color: #444;
-                line-height: 1.6;
-            }
-            .services-box:hover {
-                box-shadow: 0 4px 24px rgba(0,171,240,0.13);
-                background: var(--main-color, #00abf0);
-                color: #fff;
-            }
-            .services-box:hover i {
-                color: #fff;
-            }
-            .services-box:hover p,
-            .services-box:hover h3 {
-                color: #fff;
-            }
-            /* Dark mode support */
-            body.dark-mode .services-box {
-                background: #23272f;
-                color: #f1f1f1;
-                box-shadow: 0 2px 16px rgba(0,171,240,0.07);
-            }
-            body.dark-mode .services-box:hover {
-                background: var(--main-color, #00abf0);
-                color: #fff;
-            }
-            body.dark-mode .services-box p {
-                color: #f1f1f1;
-            }
-        </style>
     </section>
-    
 
-
-    <!-- Cursos da Udemy -->
+    <!-- ===== COURSES & CERTIFICATIONS ===== -->
     <section class="courses" id="courses">
         <h2 class="heading">Meus <span>Cursos</span> e Certificações</h2>
         <div class="underline"></div>
 
         <div class="courses-container">
 
-            <!-- Curso 1: Desenvolvimento Web Completo -->
             <div class="course-card">
                 <div class="course-platform">
-                    <i class='bx bxl-udemy'></i>
+                    <i class="bx bxl-udemy"></i>
                     <span>Udemy</span>
                 </div>
                 <h3>Desenvolvimento Web Completo 2024</h3>
                 <p class="course-instructor">Instrutor: Jorge Sant Ana</p>
                 <div class="course-meta">
-                    <span class="course-duration"><i class='bx bx-time'></i> 115h</span>
+                    <span class="course-duration"><i class="bx bx-time"></i> 115h</span>
                     <span class="course-status completed">Concluído</span>
                 </div>
                 <p class="course-description">HTML5, CSS3, JavaScript, jQuery, Bootstrap, PHP, MySQL, React, Node.js</p>
             </div>
 
-            <!-- Curso 2: JavaScript e TypeScript -->
             <div class="course-card">
                 <div class="course-platform">
-                    <i class='bx bxl-udemy'></i>
+                    <i class="bx bxl-udemy"></i>
                     <span>Udemy</span>
                 </div>
                 <h3>JavaScript e TypeScript - Full Stack</h3>
                 <p class="course-instructor">Instrutor: Luiz Otávio Miranda</p>
                 <div class="course-meta">
-                    <span class="course-duration"><i class='bx bx-time'></i> 130h</span>
+                    <span class="course-duration"><i class="bx bx-time"></i> 130h</span>
                     <span class="course-status completed">Concluído</span>
                 </div>
                 <p class="course-description">JS, TypeScript, Node.js, Express, MongoDB, React, Next.js</p>
             </div>
 
-            <!-- Curso 3: Java Completo -->
             <div class="course-card">
                 <div class="course-platform">
-                    <i class='bx bxl-udemy'></i>
+                    <i class="bx bxl-udemy"></i>
                     <span>Udemy</span>
                 </div>
                 <h3>Java COMPLETO - Programação Orientada a Objetos</h3>
                 <p class="course-instructor">Instrutor: Nelio Alves</p>
                 <div class="course-meta">
-                    <span class="course-duration"><i class='bx bx-time'></i> 54h</span>
+                    <span class="course-duration"><i class="bx bx-time"></i> 54h</span>
                     <span class="course-status completed">Concluído</span>
                 </div>
                 <p class="course-description">Java SE, POO, JDBC, JavaFX, Spring Boot, JPA, Hibernate, MySQL, MongoDB</p>
             </div>
 
-            <!-- Curso 4: C# e .NET -->
             <div class="course-card">
                 <div class="course-platform">
-                    <i class='bx bxl-udemy'></i>
+                    <i class="bx bxl-udemy"></i>
                     <span>Udemy</span>
                 </div>
                 <h3>C# COMPLETO - Programação Orientada a Objetos</h3>
                 <p class="course-instructor">Instrutor: Nelio Alves</p>
                 <div class="course-meta">
-                    <span class="course-duration"><i class='bx bx-time'></i> 36h</span>
+                    <span class="course-duration"><i class="bx bx-time"></i> 36h</span>
                     <span class="course-status completed">Concluído</span>
                 </div>
                 <p class="course-description">C#, .NET Framework, Entity Framework, LINQ, ASP.NET Core</p>
             </div>
 
-            <!-- Curso 5: React -->
             <div class="course-card">
                 <div class="course-platform">
-                    <i class='bx bxl-udemy'></i>
+                    <i class="bx bxl-udemy"></i>
                     <span>Udemy</span>
                 </div>
                 <h3>React - The Complete Guide 2024</h3>
                 <p class="course-instructor">Instrutor: Maximilian Schwarzmüller</p>
                 <div class="course-meta">
-                    <span class="course-duration"><i class='bx bx-time'></i> 48h</span>
+                    <span class="course-duration"><i class="bx bx-time"></i> 48h</span>
                     <span class="course-status completed">Concluído</span>
                 </div>
                 <p class="course-description">React, Hooks, Redux, Next.js, TypeScript, React Router</p>
             </div>
 
-            <!-- Curso 6: Node.js -->
             <div class="course-card">
                 <div class="course-platform">
-                    <i class='bx bxl-udemy'></i>
+                    <i class="bx bxl-udemy"></i>
                     <span>Udemy</span>
                 </div>
                 <h3>Node.js - The Complete Guide</h3>
                 <p class="course-instructor">Instrutor: Maximilian Schwarzmüller</p>
                 <div class="course-meta">
-                    <span class="course-duration"><i class='bx bx-time'></i> 40h</span>
+                    <span class="course-duration"><i class="bx bx-time"></i> 40h</span>
                     <span class="course-status completed">Concluído</span>
                 </div>
                 <p class="course-description">Node.js, Express, MongoDB, REST APIs, GraphQL, WebSockets</p>
             </div>
 
-            <!-- Curso 7: AWS -->
             <div class="course-card">
                 <div class="course-platform">
-                    <i class='bx bxl-udemy'></i>
+                    <i class="bx bxl-udemy"></i>
                     <span>Udemy</span>
                 </div>
                 <h3>AWS Certified Solutions Architect</h3>
                 <p class="course-instructor">Instrutor: Stephane Maarek</p>
                 <div class="course-meta">
-                    <span class="course-duration"><i class='bx bx-time'></i> 27h</span>
+                    <span class="course-duration"><i class="bx bx-time"></i> 27h</span>
                     <span class="course-status in-progress">Em Andamento</span>
                 </div>
                 <p class="course-description">EC2, S3, RDS, Lambda, CloudFormation, IAM, VPC</p>
             </div>
 
-            <!-- Curso 7: AWS -->
             <div class="course-card">
                 <div class="course-platform">
-                    <i class='bx bxl-udemy'></i>
+                    <i class="bx bxl-udemy"></i>
                     <span>Udemy</span>
                 </div>
                 <h3>Curso C++</h3>
                 <p class="course-instructor">Instrutor: Marcos Castro</p>
                 <div class="course-meta">
-                    <span class="course-duration"><i class='bx bx-time'></i> 30h</span>
+                    <span class="course-duration"><i class="bx bx-time"></i> 30h</span>
                     <span class="course-status completed">Concluído</span>
                 </div>
-                <p class="course-description">Esse curso tem como objetivo demonstrar recursos mais avançados da linguagem C++ através de vários exemplos de códigos que serão escritos e explicados passo a passo para um melhor aprendizado.</p>
+                <p class="course-description">Recursos avançados da linguagem C++ com exemplos de código passo a passo para melhor aprendizado.</p>
             </div>
 
-            <!-- Curso  Full Stack Developer -->
             <div class="course-card">
                 <div class="course-platform">
-                    <i class='bx bxl-udemy'></i>
+                    <i class="bx bxl-udemy"></i>
                     <span>Udemy</span>
                 </div>
                 <h3>Full Stack Developer</h3>
                 <p class="course-instructor">Instrutor: Valdir Cezar</p>
                 <div class="course-meta">
-                    <span class="course-duration"><i class='bx bx-time'></i> 15h</span>
+                    <span class="course-duration"><i class="bx bx-time"></i> 15h</span>
                     <span class="course-status completed">Concluído</span>
-                    <span class="course-description">Este curso ensina a criar uma aplicação Fullstack de Gerenciamento de Ordens de Serviço, unindo o Spring Boot 2 (Back-end) ao Angular 11 (Front-end). Você aprenderá desde a estruturação de uma API REST com MySQL e padrão DTO até a criação de interfaces modernas com Angular Material. O conteúdo abrange o ciclo completo de desenvolvimento, incluindo tratamento de exceções, validações e persistência de dados com JPA/Hibernate. Ao final, você dominará o consumo de APIs e realizará o deploy completo na nuvem (Heroku e GitHub Pages). É ideal para iniciantes que buscam criar um portfólio robusto e ingressar no mercado de TI.</span>
                 </div>
+                <p class="course-description">Aplicação Fullstack com Spring Boot 2 e Angular 11. API REST com MySQL, JPA/Hibernate, deploy na nuvem (Heroku e GitHub Pages).</p>
             </div>
 
-
-            <!-- Analise e Desenvolvimento de Sistemas -->
             <div class="course-card">
                 <div class="course-platform">
-                    <i class='bx bxl-udemy'></i>
+                    <i class="bx bxl-buildings"></i>
                     <span>Universidade Estácio de Sá</span>
                 </div>
-                <h3>Analise e Desenvolvimento de Sistemas</h3>
-
+                <h3>Análise e Desenvolvimento de Sistemas</h3>
                 <div class="course-meta">
-                    <span class="course-duration"><i class='bx bx-time'></i> 2 Anos</span>
-                    <span class="course-status in-progress">Será finalizado em: Julho 2027</span>
+                    <span class="course-duration"><i class="bx bx-time"></i> 2 anos</span>
+                    <span class="course-status in-progress">Previsto: Julho 2027</span>
                 </div>
-                <p class="course-description">Curso superior tecnólogo que abrange: Lógica de Programação, Algoritmos e Estruturas de Dados, Programação Orientada a Objetos (POO), Desenvolvimento Web (HTML5, CSS3, JavaScript, PHP, React), Banco de Dados (MySQL, PostgreSQL, SQL Server), Engenharia de Software, Análise e Modelagem de Sistemas (UML), Gestão de Projetos, Arquitetura de Software, Testes de Software, Segurança da Informação, Desenvolvimento Mobile, DevOps, Metodologias Ágeis (Scrum, Kanban), Redes de Computadores, Sistemas Operacionais e Empreendedorismo Digital.</p>
+                <p class="course-description">Curso superior tecnólogo: Lógica de Programação, POO, Desenvolvimento Web, Banco de Dados, Engenharia de Software, DevOps, Metodologias Ágeis (Scrum, Kanban), Redes e mais.</p>
             </div>
+
         </div>
-
-
     </section>
 
-    <style>
-        .courses {
-            padding: 8rem 7% 5rem;
-            background: var(--bg-color);
-        }
-
-        .courses .heading {
-            font-size: 4rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-
-        .courses .underline {
-            width: 6rem;
-            height: 0.4rem;
-            background: var(--main-color);
-            margin: 0 auto 4rem auto;
-            border-radius: 0.2rem;
-        }
-
-        .courses-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .course-card {
-            background: var(--white-color);
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 171, 240, 0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .course-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--main-color), #00c6fb);
-        }
-
-
-        .course-card:hover {
-            transform: translateY(-1rem);
-            box-shadow: 0 1rem 3rem rgba(0, 171, 240, 0.2);
-            border-color: var(--main-color);
-        }
-
-        .course-platform {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-            color: #a435f0;
-            font-weight: 700;
-            font-size: 1.6rem;
-        }
-
-        .course-platform i {
-            font-size: 2.4rem;
-        }
-
-        .course-card h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .course-instructor {
-            font-size: 1.4rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .course-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .course-duration {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.4rem;
-            color: #555;
-            font-weight: 500;
-        }
-
-        .course-duration i {
-            font-size: 1.8rem;
-            color: var(--main-color);
-        }
-
-        .course-status {
-            padding: 0.5rem 1.2rem;
-            border-radius: 2rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .course-status.completed {
-            background: linear-gradient(135deg, #11998e, #38ef7d);
-            color: #fff;
-        }
-
-        .course-status.in-progress {
-            background: linear-gradient(135deg, #fac44d, #f68f16);
-            color: #fff;
-        }
-
-        .course-description {
-            font-size: 1.4rem;
-            color: #777;
-            line-height: 1.6;
-            margin-top: 1rem;
-        }
-
-        /* Dark Mode */
-        body.dark-mode .courses {
-            background: #23272f;
-        }
-
-        body.dark-mode .course-card {
-            background: #2d3748;
-            color: #f1f1f1;
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 171, 240, 0.05);
-        }
-
-        body.dark-mode .course-card:hover {
-            box-shadow: 0 1rem 3rem rgba(0, 171, 240, 0.15);
-        }
-
-        body.dark-mode .course-card h3 {
-            color: #f1f1f1;
-        }
-
-        body.dark-mode .course-instructor {
-            color: #cbd5e0;
-        }
-
-        body.dark-mode .course-duration {
-            color: #e2e8f0;
-        }
-
-        body.dark-mode .course-description {
-            color: #a0aec0;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .courses {
-                padding: 6rem 5% 4rem;
-            }
-
-            .courses .heading {
-                font-size: 3rem;
-            }
-
-            .courses-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .course-card {
-                padding: 2rem;
-            }
-
-            .course-card h3 {
-                font-size: 1.8rem;
-            }
-
-            .course-meta {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-    </style>
-
-    <!-- Projetos section design -->
+    <!-- ===== PROJECTS ===== -->
     <section class="projects" id="projects">
         <h2 class="heading">Meus <span>Projetos</span> no GitHub</h2>
         <div class="underline"></div>
@@ -1476,268 +479,34 @@
             <p>Carregando projetos...</p>
         </div>
     </section>
-    <script>
 
-        const githubUser = "g-arezi";
-        const projectsContainer = document.getElementById('github-projects');
-        const langIcons = {
-            'JavaScript': '<i class="fab fa-js-square" style="color:#f7df1e"></i>',
-            'TypeScript': '<i class="fab fa-js" style="color:#3178c6"></i>',
-            'HTML': '<i class="fab fa-html5" style="color:#e34c26"></i>',
-            'CSS': '<i class="fab fa-css3-alt" style="color:#264de4"></i>',
-            'Python': '<i class="fab fa-python" style="color:#3572A5"></i>',
-            'C#': '<i class="fas fa-code" style="color:#68217a"></i>',
-            'C++': '<i class="fas fa-code" style="color:#00599C"></i>',
-            'PHP': '<i class="fab fa-php" style="color:#777bb4"></i>',
-            'Java': '<i class="fab fa-java" style="color:#b07219"></i>',
-            'Shell': '<i class="fas fa-terminal" style="color:#89e051"></i>',
-            'Go': '<i class="fab fa-golang" style="color:#00ADD8"></i>',
-            'Vue': '<i class="fab fa-vuejs" style="color:#42b883"></i>',
-            'React': '<i class="fab fa-react" style="color:#61dafb"></i>',
-            'Dockerfile': '<i class="fab fa-docker" style="color:#2496ed"></i>',
-            'Jupyter Notebook': '<i class="fas fa-book" style="color:#f37626"></i>',
-            'Kotlin': '<i class="fab fa-java" style="color:#0095D5"></i>',
-            'Dart': '<i class="fab fa-dart" style="color:#00BFFF"></i>',
-            'Ruby': '<i class="fab fa-ruby" style="color:#701516"></i>',
-            'Swift': '<i class="fab fa-swift" style="color:#ffac45"></i>',
-            'Scala': '<i class="fab fa-scala" style="color:#dc322f"></i>',
-            'Elixir': '<i class="fab fa-elixir" style="color:#6e4c3e"></i>',
-            'Rust': '<i class="fab fa-rust" style="color:#000000"></i>',
-            'Lua': '<i class="fas fa-cube" style="color:#000080"></i>',
-            'Markdown': '<i class="fas fa-file-alt" style="color:#000000"></i>',
-            'N/A': '<i class="fas fa-question-circle" style="color:#888"></i>'
-        };
-        fetch(`https://api.github.com/users/${githubUser}/repos?sort=updated&per_page=100`)
-            .then(res => res.json())
-            .then(repos => {
-                if (!Array.isArray(repos) || repos.length === 0) {
-                    projectsContainer.innerHTML = '<p>Nenhum projeto encontrado.</p>';
-                    return;
-                }
-                // Destaque para projetos com mais de 10 estrelas
-                repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
-                projectsContainer.innerHTML = repos.map(repo => {
-                    const lang = repo.language || 'N/A';
-                    const icon = langIcons[lang] || langIcons['N/A'];
-                    const isFeatured = repo.stargazers_count >= 10;
-                    return `
-            <div class="project-card${isFeatured ? ' featured' : ''}">
-              <div class="project-lang">${icon} ${lang}</div>
-              <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
-
-              <div class="project-meta">
-                <span class="date">Atualizado: ${new Date(repo.updated_at).toLocaleDateString('pt-BR')}</span>
-              </div>
-              <a class="repo-link" href="${repo.html_url}" target="_blank">Ver no GitHub</a>
-            </div>
-          `;
-                }).join('');
-            })
-            .catch(() => {
-                projectsContainer.innerHTML = '<p>Erro ao carregar projetos do GitHub.</p>';
-            });
-    </script>
-    <style>
-        .projects {
-            padding: 8rem 7% 5rem;
-            background: var(--bg-color);
-        }
-        .projects .heading {
-            font-size: 4rem;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-        .projects .underline {
-            width: 6rem;
-            height: 0.4rem;
-            background: var(--main-color);
-            margin: 0 auto 3rem auto;
-            border-radius: 0.2rem;
-        }
-        .projects-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            justify-content: center;
-        }
-        .project-card {
-            background: var(--white-color);
-            border-radius: 1.2rem;
-            box-shadow: 0 3px 18px rgba(0,171,240,0.10);
-            padding: 1.8rem 1.5rem 1.5rem 1.5rem;
-            width: 280px;
-            min-height: 180px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            border: 2px solid transparent;
-            transition: box-shadow 0.3s, border 0.3s, transform 0.3s, background 0.3s;
-            overflow: hidden;
-            animation: fadeInUp 0.7s;
-        }
-        .project-card:hover {
-            border: 2px solid var(--main-color);
-            box-shadow: 0 6px 24px rgba(0,171,240,0.18);
-            transform: translateY(-6px) scale(1.02);
-            background: linear-gradient(120deg, var(--main-color) 0%, #00c6fb 100%);
-            color: #fff;
-        }
-        .project-card .project-lang {
-            position: absolute;
-            top: 8rem;
-            right: 1.2rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            background: rgba(6,142,221,0.08);
-            color: var(--main-color);
-            padding: 0.2rem 0.8rem;
-            border-radius: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: background 0.3s, color 0.3s;
-        }
-        .project-card:hover .project-lang {
-            background: rgba(255,255,255,0.18);
-            color: #fff;
-        }
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.6rem;
-            font-weight: 700;
-            word-break: break-all;
-        }
-        .project-card a.repo-link {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.6rem 1.2rem;
-            background: var(--main-color);
-            color: #fff;
-            border-radius: 0.6rem;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            box-shadow: 0 2px 6px rgba(0,171,240,0.10);
-            transition: background 0.3s, color 0.3s;
-        }
-        .project-card a.repo-link:hover {
-            background: #fff;
-            color: var(--main-color);
-            border: 1px solid var(--main-color);
-        }
-        .project-card p {
-            font-size: 1.2rem;
-            color: #444;
-            margin-bottom: 1.2rem;
-            min-height: 40px;
-            flex: 1;
-        }
-        .project-card .project-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 1rem;
-            color: #666;
-            margin-top: 0.4rem;
-        }
-        .project-card .project-meta .star {
-            color: #f7b731;
-            font-weight: bold;
-        }
-        .project-card .project-meta .fork {
-            color: #00abf0;
-        }
-        .project-card .project-meta .date {
-            color: #888;
-            font-size: 1.4rem;
-        }
-        .project-card.featured {
-            border: 2px solid #f7b731;
-            box-shadow: 0 8px 32px rgba(247,183,49,0.18);
-        }
-        @media (max-width: 900px) {
-            .projects-container {
-                gap: 1.2rem;
-            }
-            .project-card {
-                width: 90vw;
-                max-width: 320px;
-            }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        body.dark-mode .projects {
-            background: #23272f;
-        }
-        body.dark-mode .project-card {
-            background: #2d3748;
-            color: #f1f1f1;
-            box-shadow: 0 2px 16px rgba(0,171,240,0.07);
-        }
-        body.dark-mode .project-card:hover {
-            background: linear-gradient(120deg, var(--main-color) 0%, #00c6fb 100%);
-            color: #fff;
-        }
-        body.dark-mode .project-card .project-lang {
-            background: rgba(0,171,240,0.13);
-            color: #00abf0;
-        }
-        body.dark-mode .project-card:hover .project-lang {
-            background: rgba(255,255,255,0.18);
-            color: #fff;
-        }
-        body.dark-mode .project-card a.repo-link {
-            background: #00abf0;
-            color: #fff;
-        }
-        body.dark-mode .project-card a.repo-link:hover {
-            background: #fff;
-            color: #00abf0;
-        }
-    </style>
-
-    <!-- footer design -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="footer-text">
-            <p> &copy; <a href="https://www.linkedin.com/in/gabriel-arezi/">Gabriel Arezi</a>  2024 |Todos Direitos Reservados.</p>
+            <p>&copy; <a href="https://www.linkedin.com/in/gabriel-arezi/" target="_blank" rel="noopener noreferrer">Gabriel Arezi</a> 2024 | Todos os Direitos Reservados.</p>
         </div>
-
         <div class="footer-iconTop">
-            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+            <a href="#home" aria-label="Voltar ao topo"><i class="bx bx-up-arrow-alt"></i></a>
         </div>
-
-
     </footer>
 
+    <!-- Translate Button (fixed – accessible from any section) -->
+    <div class="footer-translate">
+        <button id="translate-toggle" class="translate-compact-btn" aria-controls="gt-panel" aria-expanded="false" aria-label="Abrir tradução">
+            <i class="bx bx-world"></i>
+            <span class="translate-label">Translate</span>
+        </button>
+    </div>
 
-    <!-- scroll reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!-- swiper js -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-    <!-- custom js -->
-    <script src="js/script.js"></script>
-    <!-- mobile optimization js -->
-    <script src="js/mobile.js"></script>
-    <!-- tema escuro/claro js -->
-    <script src="js/theme-mode.js"></script>
-
-    <!-- Google Translate Panel (dropdown on desktop / modal on mobile) -->
+    <!-- Google Translate Panel -->
     <div id="gt-panel" class="gt-panel" aria-hidden="true">
         <div id="gt-dialog" class="gt-dialog" role="dialog" aria-modal="false" aria-labelledby="gt-title">
             <div class="gt-header">
                 <h3 id="gt-title">Traduzir página</h3>
                 <button id="gt-close" class="gt-close" aria-label="Fechar tradução">&times;</button>
             </div>
-
             <div class="gt-body">
-                <!-- The official widget will render into this element after lazy-loading -->
                 <div id="google_translate_element" class="gt-widget" tabindex="0"></div>
-
                 <div class="gt-actions">
                     <button id="gt-reset" class="btn" type="button">Remover tradução</button>
                 </div>
@@ -1746,193 +515,14 @@
         <div id="gt-backdrop" class="gt-backdrop" tabindex="-1" aria-hidden="true"></div>
     </div>
 
-    <script>
-        (function () {
-            // State
-            let gtLoaded = false;
-            const toggleBtn = document.getElementById('translate-toggle');
-            const panel = document.getElementById('gt-panel');
-            const dialog = document.getElementById('gt-dialog');
-            const closeBtn = document.getElementById('gt-close');
-            const backdrop = document.getElementById('gt-backdrop');
-            const resetBtn = document.getElementById('gt-reset');
+    <!-- External Scripts -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/mobile.js"></script>
+    <script src="js/theme-mode.js"></script>
+    <script src="js/translate.js"></script>
 
-            // Utility: get focusable elements inside the dialog
-            function getFocusable(el) {
-                if (!el) return [];
-                const selectors = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex], [contenteditable]';
-                return Array.from(el.querySelectorAll(selectors)).filter(function (child) {
-                    return child.offsetWidth > 0 || child.offsetHeight > 0 || child.getClientRects().length;
-                });
-            }
-
-            // Lazy-load Google Translate script and init
-            window.googleTranslateElementInit = function () {
-                try {
-                    new google.translate.TranslateElement({
-                        pageLanguage: 'pt',
-                        includedLanguages: '',
-                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                    }, 'google_translate_element');
-                } catch (e) {
-                    console.warn('Erro ao inicializar o Google Translate', e);
-                }
-            };
-
-            function loadGoogleTranslate() {
-                if (gtLoaded) return Promise.resolve();
-                return new Promise((resolve, reject) => {
-                    const script = document.createElement('script');
-                    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-                    script.async = true;
-                    script.onload = function () {
-                        gtLoaded = true;
-                        // Small delay to allow widget to render
-                        setTimeout(resolve, 250);
-                    };
-                    script.onerror = function (e) {
-                        console.error('Erro ao carregar script do Google Translate', e);
-                        reject(e);
-                    };
-                    document.head.appendChild(script);
-                });
-            }
-
-            // Open panel (dropdown on desktop, modal on small screens)
-            function openPanel() {
-                toggleBtn.setAttribute('aria-expanded', 'true');
-                panel.setAttribute('aria-hidden', 'false');
-                panel.classList.add('open');
-
-                // On small screens make aria-modal true for screen readers
-                if (window.matchMedia('(max-width: 768px)').matches) {
-                    dialog.setAttribute('aria-modal', 'true');
-                } else {
-                    dialog.setAttribute('aria-modal', 'false');
-                }
-
-                // Focus management: focus the widget or close button when opened
-                const focusable = getFocusable(dialog);
-                if (focusable.length) focusable[0].focus();
-
-                document.addEventListener('keydown', handleKeyDown);
-                backdrop.addEventListener('click', closePanel);
-            }
-
-            function closePanel() {
-                toggleBtn.setAttribute('aria-expanded', 'false');
-                panel.setAttribute('aria-hidden', 'true');
-                panel.classList.remove('open');
-                dialog.setAttribute('aria-modal', 'false');
-                toggleBtn.focus();
-                document.removeEventListener('keydown', handleKeyDown);
-                backdrop.removeEventListener('click', closePanel);
-            }
-
-            function handleKeyDown(e) {
-                if (e.key === 'Escape' || e.key === 'Esc') {
-                    closePanel();
-                    return;
-                }
-                if (e.key === 'Tab') {
-                    // Simple focus trap inside dialog
-                    const focusable = getFocusable(dialog);
-                    if (!focusable.length) return;
-                    const first = focusable[0];
-                    const last = focusable[focusable.length - 1];
-                    if (e.shiftKey) {
-                        if (document.activeElement === first) {
-                            e.preventDefault();
-                            last.focus();
-                        }
-                    } else {
-                        if (document.activeElement === last) {
-                            e.preventDefault();
-                            first.focus();
-                        }
-                    }
-                }
-            }
-
-            // Reset translation by setting select to first option and triggering change
-            function resetTranslation() {
-                const select = document.querySelector('#google_translate_element select');
-                if (select) {
-                    select.selectedIndex = 0;
-                    select.dispatchEvent(new Event('change'));
-                } else {
-                    // if widget not present, just reload original language
-                    location.reload();
-                }
-            }
-
-            // Event wiring
-            toggleBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                const isOpen = panel.classList.contains('open');
-                if (isOpen) {
-                    closePanel();
-                    return;
-                }
-                // Load script on first open
-                loadGoogleTranslate().then(() => {
-                    openPanel();
-                }).catch(() => {
-                    openPanel(); // still open panel even if script failed
-                });
-            });
-
-            closeBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                closePanel();
-            });
-
-            resetBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                resetTranslation();
-            });
-
-            // Close when user navigates or focuses outside (optional enhancements)
-            window.addEventListener('resize', function () {
-                // adjust aria-modal on resize
-                if (panel.classList.contains('open')) {
-                    if (window.matchMedia('(max-width: 768px)').matches) {
-                        dialog.setAttribute('aria-modal', 'true');
-                    } else {
-                        dialog.setAttribute('aria-modal', 'false');
-                    }
-                }
-            });
-
-            // Avoid Google translate banner overlay interfering with layout
-            // Small helper to hide the banner if injected
-            const hideTranslateBanner = function () {
-                const banner = document.querySelector('.goog-te-banner-frame');
-                if (banner) banner.style.display = 'none';
-                const element = document.getElementById('google_translate_element');
-                if (element) element.style.opacity = '1';
-            };
-            // Periodically try to hide the banner after load
-            setInterval(hideTranslateBanner, 800);
-
-        })();
-    </script>
 </body>
-
-
-
 </html>
-
-
-<!-- como ninguém é perfeito e nasce sabendo, deixarei a source do portfólio publica, para que outros possam aprender e desenvolver com ele.
- Como usar:
-1. Clone este repositório em sua máquina local usando o comando:
-   ```
-   git clone https://github.com/g-arezi/Portifolio.git
-   ```
-2. Navegue até o diretório do projeto:
-   ```
-   cd Portifolio
-   ```
--->
 
