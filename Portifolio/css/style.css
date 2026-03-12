@@ -1129,6 +1129,96 @@ section {
 /* ============================================================
    PROJECTS SECTION
    ============================================================ */
+
+/* Utility: hidden tab panel */
+.projects-container.hidden { display: none; }
+
+/* ---- Project Tabs ---- */
+.projects-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin: 2.5rem 0 0;
+    flex-wrap: wrap;
+}
+
+.projects-tab {
+    background: transparent;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    border-radius: 5rem;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.projects-tab:hover,
+.projects-tab.active {
+    background: var(--main-color);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ---- Extra card content ---- */
+.project-desc {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 0.4rem 0 0.6rem;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.project-card:hover .project-desc { color: #ffffffcc; }
+
+.project-stars {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 1.2rem;
+    color: #f7b731;
+    font-weight: 600;
+}
+
+.starred-owner {
+    display: block;
+    font-size: 1.1rem;
+    color: #888;
+    margin-bottom: 0.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.project-card:hover .starred-owner { color: #ffffffaa; }
+
+.empty-msg {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #888;
+    padding: 4rem 0;
+    width: 100%;
+}
+
+/* Dark-mode tweaks */
+.dark-mode .projects-tab {
+    border-color: #00abf0;
+    color: #00abf0;
+}
+
+.dark-mode .projects-tab.active,
+.dark-mode .projects-tab:hover {
+    background: #00abf0;
+    color: #fff;
+}
+
+.dark-mode .project-desc { color: #ccc; }
+.dark-mode .starred-owner { color: #aaa; }
+
 .projects {
     min-height: auto;
     padding: 8rem 7% 5rem;

@@ -475,8 +475,25 @@
     <section class="projects" id="projects">
         <h2 class="heading">Meus <span>Projetos</span> no GitHub</h2>
         <div class="underline"></div>
-        <div id="github-projects" class="projects-container">
-            <p>Carregando projetos...</p>
+
+        <!-- Tabs -->
+        <div class="projects-tabs" role="tablist" aria-label="Tipo de projetos">
+            <button class="projects-tab active" role="tab" aria-selected="true" aria-controls="github-projects" data-tab="repos">
+                <i class="bx bxl-github"></i> Meus Repositórios
+            </button>
+            <button class="projects-tab" role="tab" aria-selected="false" aria-controls="github-starred" data-tab="starred">
+                <i class="bx bx-star"></i> Favoritos
+            </button>
+        </div>
+
+        <!-- My Repos -->
+        <div id="github-projects" class="projects-container" role="tabpanel">
+            <p class="loading-msg">Carregando projetos...</p>
+        </div>
+
+        <!-- Starred Repos -->
+        <div id="github-starred" class="projects-container hidden" role="tabpanel" aria-hidden="true">
+            <p class="loading-msg">Carregando favoritos...</p>
         </div>
     </section>
 
