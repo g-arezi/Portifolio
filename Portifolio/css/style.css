@@ -482,6 +482,21 @@ section {
     margin-bottom: 2rem;
 }
 
+.main-profile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-logo {
+    display: block;
+    width: min(100%, 44rem);
+    max-height: 14rem;
+    height: auto;
+    object-fit: contain;
+}
+
 .profile-box {
     background: var(--main-color);
     color: var(--white-color);
@@ -1890,8 +1905,10 @@ section {
 
 @media (max-width: 617px) {
     .section-title h2 { font-size: 2.5rem; }
-    .profile-box { padding: 2rem 2.5rem; }
-    .profile-box h3 { font-size: 2rem; }
+    .profile-logo {
+        width: min(100%, 32rem);
+        max-height: 10rem;
+    }
     .skill-box { padding: 1rem; min-height: 6rem; }
     .complement-skills { gap: 1rem; }
     .complement-item { min-width: 12rem; }

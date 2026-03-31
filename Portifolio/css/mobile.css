@@ -199,6 +199,18 @@
     .skills-diagram-classic {
         padding: 1rem;
     }
+
+    .main-profile {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-logo {
+        width: min(100%, 26rem);
+        max-height: 8rem;
+        object-fit: contain;
+    }
     
     .profile-box {
         padding: 1.5rem;
