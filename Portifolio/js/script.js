@@ -94,7 +94,7 @@ if (nextBtn && swiper) nextBtn.addEventListener('click', () => swiper.slideNext(
    ============================================================ */
 if (typeof ScrollReveal !== 'undefined') {
     try {
-        ScrollReveal({ distance: '80px', duration: 2000, delay: 200 });
+        ScrollReveal({ distance: '80px', duration: 2000, delay: 200, scale: 0.95 });
         ScrollReveal().reveal('.home-content, .heading',                                            { origin: 'top' });
         ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form', { origin: 'bottom' });
         ScrollReveal().reveal('.home-content h1, .about-img img',                                   { origin: 'left' });

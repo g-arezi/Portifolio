@@ -193,6 +193,8 @@ section {
     background: transparent;
     color: var(--main-color);
     border-color: var(--main-color);
+    transform: scale(1.05);
+    box-shadow: 0 0.5rem 1rem var(--shadow-color);
 }
 
 .btn:focus {
@@ -682,8 +684,9 @@ section {
 }
 
 .skill-box:hover {
-    transform: translateX(0.5rem);
-    box-shadow: 0 1rem 2rem var(--shadow-color);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 1rem 3rem var(--shadow-color);
+    border: 1px solid var(--main-color);
 }
 
 .skill-box i {
@@ -1274,9 +1277,10 @@ section {
 .project-card:hover {
     border-color: var(--main-color);
     box-shadow: 0 6px 24px rgba(0, 171, 240, 0.18);
-    transform: translateY(-6px) scale(1.02);
+    transform: translateY(-10px) scale(1.05) rotateX(5deg);
     background: linear-gradient(120deg, var(--main-color) 0%, #00c6fb 100%);
     color: #fff;
+    perspective: 1000px;
 }
 
 .project-card .project-lang {
