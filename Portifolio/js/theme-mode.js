@@ -25,13 +25,6 @@
     function applyTheme(isDark) {
         document.body.classList.toggle('dark-mode', isDark);
         darkModeIcon.classList.toggle('bx-sun', isDark);
-
-        const profileLogo = document.querySelector('.profile-logo');
-        if (profileLogo) {
-            const darkLogo = profileLogo.getAttribute('data-logo-dark');
-            const lightLogo = profileLogo.getAttribute('data-logo-light');
-            profileLogo.src = isDark ? (darkLogo || profileLogo.src) : (lightLogo || profileLogo.src);
-        }
     }
 
     /* ------ Toggle on click ------ */

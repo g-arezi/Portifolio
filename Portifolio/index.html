@@ -23,8 +23,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/mobile.css">
-    <link rel="stylesheet" href="css/fix-mobile.css">
 </head>
 
 <body>
@@ -42,15 +40,19 @@
             <a href="#projects">Projetos</a>
         </nav>
 
-        <i class="bx bx-moon" id="darkMode-icon" role="button" tabindex="0" aria-label="Alternar tema"></i>
-        <i class="bx bx-menu" id="menu-icon" role="button" tabindex="0" aria-label="Abrir menu" aria-expanded="false"></i>
+        <div class="header-actions">
+            <i class="bx bx-moon" id="darkMode-icon" role="button" tabindex="0" aria-label="Alternar tema"></i>
+            <i class="bx bx-menu" id="menu-icon" role="button" tabindex="0" aria-label="Abrir menu" aria-expanded="false"></i>
+        </div>
     </header>
 
     <!-- ===== HOME ===== -->
     <section class="home" id="home">
         <div class="home-content">
-            <h3>Olá, Eu sou</h3>
+            <p class="home-eyebrow">Olá, Eu sou</p>
             <h1>Gabriel Arezi</h1>
+            <p class="home-role"><i class="bx bx-code-alt"></i> FullStack Developer</p>
+
             <p>Seja bem-vindo ao meu portfólio. Aqui você encontrará minha experiência e projetos.</p>
             <p>Estou sempre aberto a novos desafios e oportunidades de aprendizado.</p>
 
@@ -66,53 +68,44 @@
                 </a>
             </div>
 
-            <a href="https://www.linkedin.com/in/gabriel-arezi/" class="btn" target="_blank" rel="noopener noreferrer">Meu LinkedIn</a>
-            <a href="https://wa.me/5527992231145?text=Ol%C3%A1%2C+Gabriel+gostaria+de+saber+mais+sobre+seus+servi%C3%A7os%21" class="btn" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        </div>
-
-        <div class="profession-container">
-            <div class="profession-box">
-                <div class="profession" style="--i:0;">
-                    <i class="bx bx-code-alt"></i>
-                    <h3>FullStack Developer</h3>
-                </div>
-            </div>
-            <div class="overlay"></div>
-        </div>
-
-        <!-- Language Skills Card -->
-        <div class="language-skills">
-            <h3>Idiomas</h3>
-
-            <div class="language-bar">
-                <span class="lang-name">Português (PT-BR)</span>
-                <div class="lang-track">
-                    <div class="lang-fill" style="width: 100%"></div>
-                </div>
-                <span class="lang-level">Nativo</span>
-            </div>
-
-            <div class="language-bar">
-                <span class="lang-name">Inglês</span>
-                <div class="lang-track">
-                    <div class="lang-fill" style="width: 45%"></div>
-                </div>
-                <span class="lang-level">Intermediário</span>
-            </div>
-
-            <div class="language-bar">
-                <span class="lang-name">Espanhol</span>
-                <div class="lang-track">
-                    <div class="lang-fill" style="width: 60%"></div>
-                </div>
-                <span class="lang-level">Intermediário</span>
+            <div class="home-actions">
+                <a href="https://www.linkedin.com/in/gabriel-arezi/" class="btn" target="_blank" rel="noopener noreferrer">Meu LinkedIn</a>
+                <a href="https://wa.me/5527992231145?text=Ol%C3%A1%2C+Gabriel+gostaria+de+saber+mais+sobre+seus+servi%C3%A7os%21" class="btn btn-outline" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
         </div>
 
+        <aside class="home-panel">
+            <div class="home-blob" aria-hidden="true"></div>
 
-        <div class="home-img">
-            <img src="" alt="">
-        </div>
+            <!-- Language Skills Card -->
+            <div class="language-skills">
+                <h3>Idiomas</h3>
+
+                <div class="language-bar">
+                    <span class="lang-name">Português (PT-BR)</span>
+                    <div class="lang-track">
+                        <div class="lang-fill" style="width: 100%"></div>
+                    </div>
+                    <span class="lang-level">Nativo</span>
+                </div>
+
+                <div class="language-bar">
+                    <span class="lang-name">Inglês</span>
+                    <div class="lang-track">
+                        <div class="lang-fill" style="width: 45%"></div>
+                    </div>
+                    <span class="lang-level">Intermediário</span>
+                </div>
+
+                <div class="language-bar">
+                    <span class="lang-name">Espanhol</span>
+                    <div class="lang-track">
+                        <div class="lang-fill" style="width: 60%"></div>
+                    </div>
+                    <span class="lang-level">Intermediário</span>
+                </div>
+            </div>
+        </aside>
     </section>
 
     <!-- ===== ABOUT ===== -->
@@ -137,110 +130,63 @@
                 <div class="underline"></div>
             </div>
 
-            <div class="skills-diagram-classic">
-
-                <!-- Level 1 – Main Profile -->
-                <div class="diagram-level level-1">
-                    <div class="main-profile">
-                        <img src="img/Logo%20-%20Letra%20Branca%20V2.png" data-logo-dark="img/Logo%20-%20Letra%20Branca%20V2.png" data-logo-light="img/Logo%20-%20Letra%20Preta%20V1.png" alt="Logo Gabriel Arezi" class="profile-logo">
-                    </div>
-                </div>
-
-                <!-- Connectors: Level 1 → 2 -->
-                <div class="connectors level-1-to-2">
-                    <div class="connector-line horizontal-main"></div>
-                    <div class="connector-branch left"></div>
-                    <div class="connector-branch center-left"></div>
-                    <div class="connector-branch center-right"></div>
-                    <div class="connector-branch right"></div>
-                </div>
-
-                <!-- Level 2 – Categories -->
-                <div class="diagram-level level-2">
-                    <div class="category-box frontend">
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-header">
                         <i class="fas fa-laptop-code"></i>
-                        <h4>Frontend</h4>
+                        <h3>Frontend</h3>
                     </div>
-                    <div class="category-box backend">
+                    <div class="skill-chips">
+                        <span class="skill-chip"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="skill-chip"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="skill-chip"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="skill-chip"><i class="fab fa-react"></i> React.js</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-header">
                         <i class="fas fa-server"></i>
-                        <h4>Backend</h4>
+                        <h3>Backend</h3>
                     </div>
-                    <div class="category-box database">
+                    <div class="skill-chips">
+                        <span class="skill-chip"><i class="fab fa-node-js"></i> Node.js</span>
+                        <span class="skill-chip"><i class="fab fa-php"></i> PHP</span>
+                        <span class="skill-chip"><i class="fas fa-code"></i> C#</span>
+                        <span class="skill-chip"><i class="fab fa-java"></i> Java</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-header">
                         <i class="fas fa-database"></i>
-                        <h4>Database</h4>
+                        <h3>Database</h3>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="skill-chip"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="skill-chip"><i class="fas fa-database"></i> PostgreSQL</span>
+                        <span class="skill-chip"><i class="fas fa-server"></i> SQL Server</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- Connectors: Level 2 → 3 -->
-                <div class="connectors level-2-to-3">
-                    <div class="connector-group frontend-connectors">
-                        <div class="connector-line vertical"></div>
-                        <div class="connector-line horizontal-sub"></div>
-                        <div class="connector-branch sub-left"></div>
-                        <div class="connector-branch sub-center-left"></div>
-                        <div class="connector-branch sub-center-right"></div>
-                        <div class="connector-branch sub-right"></div>
-                    </div>
-                    <div class="connector-group backend-connectors">
-                        <div class="connector-line vertical"></div>
-                        <div class="connector-line horizontal-sub"></div>
-                        <div class="connector-branch sub-left"></div>
-                        <div class="connector-branch sub-center-left"></div>
-                        <div class="connector-branch sub-center-right"></div>
-                        <div class="connector-branch sub-right"></div>
-                    </div>
-                    <div class="connector-group database-connectors">
-                        <div class="connector-line vertical"></div>
-                        <div class="connector-line horizontal-sub"></div>
-                        <div class="connector-branch sub-left"></div>
-                        <div class="connector-branch sub-center"></div>
-                        <div class="connector-branch sub-right"></div>
-                    </div>
+            <div class="complement-section">
+                <h4>Tecnologias Complementares</h4>
+                <div class="complement-skills">
+                    <div class="complement-item"><i class="fab fa-aws"></i><span>AWS</span></div>
+                    <div class="complement-item"><i class="fab fa-node-js"></i><span>Next.js</span></div>
+                    <div class="complement-item"><i class="fab fa-java"></i><span>Spring Boot</span></div>
+                    <div class="complement-item"><i class="fab fa-java"></i><span>Hibernate</span></div>
+                    <div class="complement-item"><i class="fab fa-microsoft"></i><span>Azure</span></div>
+                    <div class="complement-item"><i class="fas fa-network-wired"></i><span>Redes</span></div>
+                    <div class="complement-item"><i class="fab fa-wordpress"></i><span>WordPress</span></div>
+                    <div class="complement-item"><i class="fab fa-linux"></i><span>Linux</span></div>
+                    <div class="complement-item"><i class="fab fa-windows"></i><span>Windows</span></div>
+                    <div class="complement-item"><i class="fab fa-github"></i><span>Git</span></div>
+                    <div class="complement-item"><i class="fas fa-robot"></i><span>n8n</span></div>
+                    <div class="complement-item"><i class="fab fa-node-js"></i><span>NestJS</span></div>
+                    <div class="complement-item"><i class="fa-brands fa-angular"></i><span>Angular</span></div>
                 </div>
-
-                <!-- Level 3 – Specific Skills -->
-                <div class="diagram-level level-3">
-                    <div class="skills-group frontend-skills">
-                        <div class="skill-box"><i class="fab fa-js"></i><span>JavaScript</span></div>
-                        <div class="skill-box"><i class="fab fa-html5"></i><span>HTML5</span></div>
-                        <div class="skill-box"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
-                        <div class="skill-box"><i class="fab fa-react"></i><span>React.js</span></div>
-                    </div>
-                    <div class="skills-group backend-skills">
-                        <div class="skill-box"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-                        <div class="skill-box"><i class="fab fa-php"></i><span>PHP</span></div>
-                        <div class="skill-box"><i class="fas fa-code"></i><span>C#</span></div>
-                        <div class="skill-box"><i class="fab fa-java"></i><span>Java</span></div>
-                    </div>
-                    <div class="skills-group database-skills">
-                        <div class="skill-box"><i class="fas fa-database"></i><span>MySQL</span></div>
-                        <div class="skill-box"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
-                        <div class="skill-box"><i class="fas fa-server"></i><span>SQL Server</span></div>
-                    </div>
-                </div>
-
-                <!-- Level 4 – Complementary Technologies -->
-                <div class="diagram-level level-4">
-                    <div class="complement-section">
-                        <h4>Tecnologias Complementares</h4>
-                        <div class="complement-skills">
-                            <div class="complement-item"><i class="fab fa-aws"></i><span>AWS</span></div>
-                            <div class="complement-item"><i class="fab fa-node-js"></i><span>Next.js</span></div>
-                            <div class="complement-item"><i class="fab fa-java"></i><span>Spring Boot</span></div>
-                            <div class="complement-item"><i class="fab fa-java"></i><span>Hibernate</span></div>
-                            <div class="complement-item"><i class="fab fa-microsoft"></i><span>Azure</span></div>
-                            <div class="complement-item"><i class="fas fa-network-wired"></i><span>Redes</span></div>
-                            <div class="complement-item"><i class="fab fa-wordpress"></i><span>WordPress</span></div>
-                            <div class="complement-item"><i class="fab fa-linux"></i><span>Linux</span></div>
-                            <div class="complement-item"><i class="fab fa-windows"></i><span>Windows</span></div>
-                            <div class="complement-item"><i class="fab fa-github"></i><span>Git</span></div>
-                            <div class="complement-item"><i class="fas fa-robot"></i><span>n8n</span></div>
-                            <div class="complement-item"><i class="fab fa-node-js"></i><span>NestJS</span></div>
-                            <div class="complement-item"><i class="fa-brands fa-angular"></i><span>Angular</span></div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
     </section>

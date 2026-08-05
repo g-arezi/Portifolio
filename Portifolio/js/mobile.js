@@ -9,15 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Forçar recálculo de altura em dispositivos móveis para resolver problemas de layout
     if (isMobile) {
         const setMobileHeight = () => {
-            // Define a altura da viewport para páginas responsivas
+            // Define a altura real da viewport (corrige a barra de endereço móvel)
             let vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
-            
-            // Ajusta a altura da seção home para garantir que caiba na tela
-            const homeSection = document.querySelector('.home');
-            if (homeSection) {
-                homeSection.style.minHeight = `calc(100vh - 7rem)`;
-            }
         };
         
         // Chama a função imediatamente e quando a janela for redimensionada

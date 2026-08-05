@@ -30,10 +30,29 @@ navLinks.forEach(link => {
 });
 
 /* ============================================================
+   HEADER HEIGHT – keep --header-h in sync with the real header
+   (fonts/icons can shift its rendered height; a hardcoded rem
+   value in CSS would drift and starve .navbar of space, forcing
+   an unwanted scrollbar in the mobile menu)
+   ============================================================ */
+const header = document.querySelector('.header');
+
+function updateHeaderHeight() {
+    if (header) {
+        document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`);
+    }
+}
+
+updateHeaderHeight();
+window.addEventListener('resize', updateHeaderHeight);
+if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(updateHeaderHeight);
+}
+
+/* ============================================================
    NAVIGATION – Active link on scroll + sticky header
    ============================================================ */
 const sections = document.querySelectorAll('section');
-const header   = document.querySelector('.header');
 
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
@@ -95,10 +114,10 @@ if (nextBtn && swiper) nextBtn.addEventListener('click', () => swiper.slideNext(
 if (typeof ScrollReveal !== 'undefined') {
     try {
         ScrollReveal({ distance: '80px', duration: 2000, delay: 200, scale: 0.95 });
-        ScrollReveal().reveal('.home-content, .heading',                                            { origin: 'top' });
-        ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form', { origin: 'bottom' });
-        ScrollReveal().reveal('.home-content h1, .about-img img',                                   { origin: 'left' });
-        ScrollReveal().reveal('.home-content h3, .home-content p, .about-content',                 { origin: 'right' });
+        ScrollReveal().reveal('.home-content, .heading',                                { origin: 'top' });
+        ScrollReveal().reveal('.home-panel, .services-container, .testimonial-wrapper', { origin: 'bottom' });
+        ScrollReveal().reveal('.home-content h1',                                       { origin: 'left' });
+        ScrollReveal().reveal('.home-eyebrow, .home-content p, .about-content',         { origin: 'right' });
     } catch (err) {
         console.warn('ScrollReveal initialization failed:', err);
     }
