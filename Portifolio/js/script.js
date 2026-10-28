@@ -162,10 +162,19 @@ if (typeof ScrollReveal !== 'undefined') {
     }
 
     // ---- Card builders ----
+    function formatDate(iso) {
+        const date = new Date(iso);
+        return `<time datetime="${iso}">${date.toLocaleDateString('pt-BR')}</time>`;
+    }
+
+    // Re-applies the active language to freshly rendered content
+    function translate(container) {
+        if (window.i18n) window.i18n.apply(container);
+    }
+
     function buildRepoCard(repo) {
         const lang       = repo.language || 'N/A';
         const isFeatured = repo.stargazers_count >= 10;
-        const updatedAt  = new Date(repo.updated_at).toLocaleDateString('pt-BR');
         const desc       = repo.description ? `<p class="project-desc">${repo.description}</p>` : '';
         const stars      = repo.stargazers_count
             ? `<span class="project-stars"><i class="bx bxs-star"></i> ${repo.stargazers_count}</span>`
@@ -178,17 +187,16 @@ if (typeof ScrollReveal !== 'undefined') {
                 ${desc}
                 <div class="project-meta">
                     ${stars}
-                    <span class="date">Atualizado: ${updatedAt}</span>
+                    <span class="date"><span data-i18n="projects.updated">Atualizado:</span> ${formatDate(repo.updated_at)}</span>
                 </div>
                 <a class="repo-link" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
-                    <i class="bx bxl-github"></i> Ver no GitHub
+                    <i class="bx bxl-github"></i> <span data-i18n="projects.view">Ver no GitHub</span>
                 </a>
             </div>`;
     }
 
     function buildStarredCard(repo) {
         const lang      = repo.language || 'N/A';
-        const updatedAt = new Date(repo.updated_at).toLocaleDateString('pt-BR');
         const desc      = repo.description ? `<p class="project-desc">${repo.description}</p>` : '';
         const owner     = `<span class="starred-owner"><i class="bx bx-user"></i> ${repo.full_name}</span>`;
 
@@ -200,10 +208,10 @@ if (typeof ScrollReveal !== 'undefined') {
                 ${desc}
                 <div class="project-meta">
                     <span class="project-stars"><i class="bx bxs-star"></i> ${repo.stargazers_count ?? 0}</span>
-                    <span class="date">Atualizado: ${updatedAt}</span>
+                    <span class="date"><span data-i18n="projects.updated">Atualizado:</span> ${formatDate(repo.updated_at)}</span>
                 </div>
                 <a class="repo-link" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
-                    <i class="bx bxl-github"></i> Ver no GitHub
+                    <i class="bx bxl-github"></i> <span data-i18n="projects.view">Ver no GitHub</span>
                 </a>
             </div>`;
     }
@@ -237,14 +245,17 @@ if (typeof ScrollReveal !== 'undefined') {
         fetchAllPages(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=100`)
             .then(repos => {
                 if (!repos.length) {
-                    reposContainer.innerHTML = '<p class="empty-msg">Nenhum repositório encontrado.</p>';
+                    reposContainer.innerHTML = '<p class="empty-msg" data-i18n="projects.empty">Nenhum repositório encontrado.</p>';
+                    translate(reposContainer);
                     return;
                 }
                 repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
                 reposContainer.innerHTML = repos.map(buildRepoCard).join('');
+                translate(reposContainer);
             })
             .catch(() => {
-                reposContainer.innerHTML = '<p class="empty-msg">Erro ao carregar repositórios.</p>';
+                reposContainer.innerHTML = '<p class="empty-msg" data-i18n="projects.error">Erro ao carregar repositórios.</p>';
+                translate(reposContainer);
             });
     }
 
@@ -258,13 +269,16 @@ if (typeof ScrollReveal !== 'undefined') {
         fetchAllPages(`https://api.github.com/users/${GITHUB_USER}/starred?per_page=100`)
             .then(repos => {
                 if (!repos.length) {
-                    starredContainer.innerHTML = '<p class="empty-msg">Nenhum favorito encontrado.</p>';
+                    starredContainer.innerHTML = '<p class="empty-msg" data-i18n="projects.emptyStarred">Nenhum favorito encontrado.</p>';
+                    translate(starredContainer);
                     return;
                 }
                 starredContainer.innerHTML = repos.map(buildStarredCard).join('');
+                translate(starredContainer);
             })
             .catch(() => {
-                starredContainer.innerHTML = '<p class="empty-msg">Erro ao carregar favoritos.</p>';
+                starredContainer.innerHTML = '<p class="empty-msg" data-i18n="projects.errorStarred">Erro ao carregar favoritos.</p>';
+                translate(starredContainer);
             });
     }
 
