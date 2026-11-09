@@ -169,7 +169,7 @@
        MAGNETIC BUTTONS
        ------------------------------------------------------------ */
     if (finePointer && !reduceMotion) {
-        document.querySelectorAll('.btn, .social-media a, .footer-iconTop a, .testimonial-navigation button').forEach(el => {
+        document.querySelectorAll('.btn, .social-media a, .social-media .discord-btn, .footer-iconTop a, .testimonial-navigation button').forEach(el => {
             el.addEventListener('pointermove', e => {
                 const r = el.getBoundingClientRect();
                 const x = (e.clientX - r.left - r.width / 2) * .25;
@@ -302,10 +302,117 @@
     ring2.rotation.y = .5;
     hero.add(ring1, ring2);
 
+    // --- Tech logos orbiting the planet (Font Awesome glyphs / text drawn on canvas) ---
+    const TECH = [
+        { g: '', f: 'b', c: '#61dafb' },  // React
+        { g: '', f: 'b', c: '#68a063' },  // Node.js
+        { g: '', f: 'b', c: '#f89820' },  // Java
+        { g: '', f: 'b', c: '#f7df1e' },  // JavaScript
+        { t: 'C#',     c: '#a179dc' },
+        { g: '', f: 'b', c: '#8892bf' },  // PHP
+        { g: '', f: 'b', c: '#dd0031' },  // Angular
+        { t: 'TS',     c: '#3178c6' },
+        { g: '', f: 's', c: '#38bdf8' },  // Database
+        { g: '', f: 'b', c: '#e34c26' },  // HTML5
+        { t: '.NET',   c: '#7c5cff' },
+        { g: '', f: 'b', c: '#2965f1' },  // CSS3
+        { g: '', f: 'b', c: '#2496ed' },  // Docker
+        { t: 'C++',    c: '#00599c' },
+        { g: '', f: 'b', c: '#f05032' },  // Git
+        { g: '', f: 'b', c: '#ff9900' },  // AWS
+        { t: 'SQL',    c: '#e38c00' },
+        { g: '', f: 'b', c: '#fcc624' },  // Linux
+        { t: 'n8n',    c: '#ea4b71' },
+        { g: '', f: 'b', c: '#21759b' },  // WordPress
+    ];
+
+    const orbitInner = new THREE.Group();
+    const orbitOuter = new THREE.Group();
+    orbitInner.rotation.set(1.1, 0, -.3);
+    orbitOuter.rotation.set(1.25, 0, .35);
+    hero.add(orbitInner, orbitOuter);
+
+    const techSprites = [];
+
+    function drawTile(item) {
+        const g = item.ctx, s = 128, dark = isDark();
+        g.clearRect(0, 0, s, s);
+
+        // Rounded glass tile
+        const r = 30, p = 8;
+        g.beginPath();
+        g.moveTo(p + r, p);
+        g.arcTo(s - p, p, s - p, s - p, r);
+        g.arcTo(s - p, s - p, p, s - p, r);
+        g.arcTo(p, s - p, p, p, r);
+        g.arcTo(p, p, s - p, p, r);
+        g.closePath();
+        g.fillStyle = dark ? 'rgba(13, 16, 36, .82)' : 'rgba(255, 255, 255, .92)';
+        g.fill();
+        g.lineWidth = 3;
+        g.strokeStyle = item.def.c;
+        g.globalAlpha = .55;
+        g.stroke();
+        g.globalAlpha = 1;
+
+        // Glyph or text
+        const d = item.def;
+        g.fillStyle = d.c;
+        g.textAlign = 'center';
+        g.textBaseline = 'middle';
+        if (d.t) {
+            g.font = `700 ${d.t.length > 3 ? 36 : 46}px "Space Grotesk", sans-serif`;
+            g.fillText(d.t, s / 2, s / 2 + 2);
+        } else {
+            g.font = d.f === 'b' ? '400 62px "Font Awesome 6 Brands"' : '900 58px "Font Awesome 6 Free"';
+            g.fillText(d.g, s / 2, s / 2 + 2);
+        }
+        item.tex.needsUpdate = true;
+    }
+
+    function buildOrbit() {
+        TECH.forEach((def, i) => {
+            const c   = document.createElement('canvas');
+            c.width = c.height = 128;
+            const tex = new THREE.CanvasTexture(c);
+            const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false });
+            const sp  = new THREE.Sprite(mat);
+            const item = { def, ctx: c.getContext('2d'), tex, mat, sp };
+
+            // Alternate between the two orbits, spread evenly on each
+            const inner  = i % 2 === 0;
+            const group  = inner ? orbitInner : orbitOuter;
+            const count  = Math.ceil(TECH.length / 2);
+            const angle  = (Math.floor(i / 2) / count) * Math.PI * 2 + (inner ? 0 : Math.PI / count);
+            const radius = inner ? 3.1 : 3.7;
+            sp.position.set(Math.cos(angle) * radius, 0, Math.sin(angle) * radius);
+            sp.scale.setScalar(isSmall ? .5 : .6);
+
+            group.add(sp);
+            drawTile(item);
+            techSprites.push(item);
+        });
+    }
+
+    // Wait for the icon fonts so the glyphs render (never block more than ~2.5s)
+    const fontsReady = document.fonts
+        ? Promise.race([
+            Promise.all([
+                document.fonts.load('400 62px "Font Awesome 6 Brands"'),
+                document.fonts.load('900 58px "Font Awesome 6 Free"'),
+                document.fonts.load('700 46px "Space Grotesk"'),
+            ]),
+            new Promise(r => setTimeout(r, 2500)),
+        ])
+        : Promise.resolve();
+    fontsReady.then(buildOrbit, buildOrbit);
+
+    const tmpVec = new THREE.Vector3();
+
     function layoutHero() {
         const w = window.innerWidth;
         if (w >= 1050) {
-            hero.position.set(3.6, .4, 0);
+            hero.position.set(4.4, .4, 0);
             hero.scale.setScalar(1.15);
         } else {
             hero.position.set(0, 1.4, -3);
@@ -326,6 +433,7 @@
         wireMat.opacity  = dark ? .35 : .28;
         coreMat.color.set(dark ? 0xa78bfa : 0x7c3aed);
         [particlesMat, nodesMat].forEach(m => { m.needsUpdate = true; });
+        techSprites.forEach(drawTile);
     }
     applyTheme();
     new MutationObserver(applyTheme).observe(document.body, { attributes: true, attributeFilter: ['class'] });
@@ -380,6 +488,16 @@
         ringMat1.opacity = .5 * heroFade;
         ringMat2.opacity = .45 * heroFade;
         nodesMat.opacity = heroFade;
+
+        // Orbiting tech logos: spin the orbits, dim the ones behind the planet
+        orbitInner.rotation.y = t * .16;
+        orbitOuter.rotation.y = -t * .11;
+        const heroZ = hero.getWorldPosition(tmpVec).z;
+        techSprites.forEach(item => {
+            item.sp.getWorldPosition(tmpVec);
+            const depth = THREE.MathUtils.clamp((tmpVec.z - heroZ) / 2, -1, 1); // -1 back … 1 front
+            item.mat.opacity = heroFade * (.38 + (depth + 1) * .31) * (window.innerWidth < 1050 ? .5 : 1);
+        });
 
         renderer.render(scene, camera);
         requestAnimationFrame(render);

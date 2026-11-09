@@ -247,6 +247,67 @@ if (nextBtn && swiper) nextBtn.addEventListener('click', () => swiper.slideNext(
         return fetchPage(baseUrl);
     }
 
+    // ---- Paged rendering ("Carregar mais" / "Mostrar menos") ----
+    const PAGE_SIZE = 12;
+
+    function renderPaged(container, items, buildCard) {
+        let shown = 0;
+
+        function controls() {
+            const remaining = items.length - shown;
+            if (items.length <= PAGE_SIZE) return '';
+
+            if (remaining > 0) {
+                return `
+                    <div class="projects-more">
+                        <button type="button" class="btn btn-outline load-more" data-action="more">
+                            <i class="bx bx-plus"></i>
+                            <span data-i18n="projects.loadMore">Carregar mais</span>
+                            <small class="more-count">${shown} / ${items.length}</small>
+                        </button>
+                    </div>`;
+            }
+            return `
+                <div class="projects-more">
+                    <button type="button" class="btn btn-outline load-more" data-action="less">
+                        <i class="bx bx-chevron-up"></i>
+                        <span data-i18n="projects.showLess">Mostrar menos</span>
+                    </button>
+                </div>`;
+        }
+
+        function showNext() {
+            const old = container.querySelector('.projects-more');
+            if (old) old.remove();
+
+            const next = items.slice(shown, shown + PAGE_SIZE);
+            shown += next.length;
+            container.insertAdjacentHTML('beforeend', next.map(buildCard).join('') + controls());
+            translate(container);
+        }
+
+        function reset() {
+            shown = 0;
+            container.innerHTML = '';
+            showNext();
+        }
+
+        container.addEventListener('click', e => {
+            const btn = e.target.closest('.load-more');
+            if (!btn) return;
+
+            if (btn.dataset.action === 'more') {
+                showNext();
+            } else {
+                reset();
+                const section = document.getElementById('projects');
+                if (section) section.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        reset();
+    }
+
     // ---- Load repos ----
     function loadRepos() {
         if (!reposContainer) return;
@@ -258,9 +319,9 @@ if (nextBtn && swiper) nextBtn.addEventListener('click', () => swiper.slideNext(
                     translate(reposContainer);
                     return;
                 }
+                // Most-starred first; ties keep the API's "recently updated" order
                 repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
-                reposContainer.innerHTML = repos.map(buildRepoCard).join('');
-                translate(reposContainer);
+                renderPaged(reposContainer, repos, buildRepoCard);
             })
             .catch(() => {
                 reposContainer.innerHTML = '<p class="empty-msg" data-i18n="projects.error">Erro ao carregar repositórios.</p>';
@@ -282,8 +343,7 @@ if (nextBtn && swiper) nextBtn.addEventListener('click', () => swiper.slideNext(
                     translate(starredContainer);
                     return;
                 }
-                starredContainer.innerHTML = repos.map(buildStarredCard).join('');
-                translate(starredContainer);
+                renderPaged(starredContainer, repos, buildStarredCard);
             })
             .catch(() => {
                 starredContainer.innerHTML = '<p class="empty-msg" data-i18n="projects.errorStarred">Erro ao carregar favoritos.</p>';
@@ -321,4 +381,44 @@ if (nextBtn && swiper) nextBtn.addEventListener('click', () => swiper.slideNext(
 
     // ---- Init ----
     loadRepos();
+})();
+
+/* ============================================================
+   DISCORD – copy username to clipboard
+   (Discord has no public link for a username, so the button
+   copies it and shows a confirmation tooltip)
+   ============================================================ */
+(function discordButton() {
+    const btn = document.querySelector('.discord-btn');
+    if (!btn) return;
+
+    const username = btn.dataset.discord;
+    let timer;
+
+    function fallbackCopy(text) {
+        const area = document.createElement('textarea');
+        area.value = text;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        try { document.execCommand('copy'); } catch (e) { /* ignore */ }
+        area.remove();
+    }
+
+    btn.addEventListener('click', () => {
+        const done = () => {
+            btn.classList.add('copied');
+            clearTimeout(timer);
+            timer = setTimeout(() => btn.classList.remove('copied'), 2200);
+        };
+
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(username).then(done, () => { fallbackCopy(username); done(); });
+        } else {
+            fallbackCopy(username);
+            done();
+        }
+    });
 })();
