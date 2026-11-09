@@ -27,6 +27,11 @@
 
 <body>
 
+    <!-- 3D background, scroll progress and cursor glow (driven by js/effects.js) -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
     <!-- ===== HEADER ===== -->
     <header class="header">
         <a href="#" class="logo" data-i18n="logo">Portfólio.</a>
@@ -34,7 +39,7 @@
         <nav class="navbar" aria-label="Navegação principal">
             <a href="#home" class="active" data-i18n="nav.home">Home</a>
             <a href="#sobre-mim" data-i18n="nav.about">Sobre mim</a>
-            <a href="#recomendacoes" data-i18n="nav.recs">Recomendações</a>
+           <!--  <a href="#recomendacoes" data-i18n="nav.recs">Recomendações</a> -->
             <a href="#services" data-i18n="nav.services">Serviços</a>
             <a href="#courses" data-i18n="nav.courses">Certificações</a>
             <a href="#projects" data-i18n="nav.projects">Projetos</a>
@@ -49,9 +54,13 @@
     <!-- ===== HOME ===== -->
     <section class="home" id="home">
         <div class="home-content">
+            <div class="home-badge"><span class="pulse"></span><span data-i18n="home.badge">Disponível para novos projetos</span></div>
             <p class="home-eyebrow" data-i18n="home.eyebrow">Olá, Eu sou</p>
-            <h1>Gabriel Arezi</h1>
-            <p class="home-role"><i class="bx bx-code-alt"></i> FullStack Developer</p>
+            <h1><span class="split-char" style="--i:0">Gabriel</span> <span class="split-char gradient-text" style="--i:4">Arezi</span></h1>
+            <p class="home-role" aria-label="FullStack Developer">
+                <i class="bx bx-code-alt"></i>
+                <span class="typed" data-words="FullStack Developer|Backend Developer|Node.js · .NET · Java|React · Next.js|n8n · Automation">FullStack Developer</span><span class="caret" aria-hidden="true"></span>
+            </p>
 
             <p data-i18n="home.welcome">Seja bem-vindo ao meu portfólio. Aqui você encontrará minha experiência e projetos.</p>
             <p data-i18n="home.open">Estou sempre aberto a novos desafios e oportunidades de aprendizado.</p>
@@ -70,16 +79,34 @@
 
             <div class="home-actions">
                 <a href="https://www.linkedin.com/in/gabriel-arezi/" class="btn" target="_blank" rel="noopener noreferrer" data-i18n="home.linkedin">Meu LinkedIn</a>
-                <a href="https://wa.me/5527992231145?text=Ol%C3%A1%2C+Gabriel+gostaria+de+saber+mais+sobre+seus+servi%C3%A7os%21" class="btn btn-outline" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="https://wa.me/5527992231145?text=Ol%C3%A1%2C+Gabriel+gostaria+de+saber+mais+sobre+seus+servi%C3%A7os%21" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><i class="bx bxl-whatsapp"></i> WhatsApp</a>
+            </div>
+
+            <div class="home-stats">
+                <div class="stat"><strong data-count="500" data-suffix="+">0</strong><small data-i18n="home.stat.hours">Horas de estudo</small></div>
+                <div class="stat"><strong data-count="11">0</strong><small data-i18n="home.stat.certs">Cursos e certificações</small></div>
+                <div class="stat"><strong data-count="20" data-suffix="+">0</strong><small data-i18n="home.stat.tech">Tecnologias</small></div>
             </div>
         </div>
 
         <aside class="home-panel">
             <div class="home-blob" aria-hidden="true"></div>
 
+            <!-- Profile Card (3D tilt) -->
+            <div class="profile-card" data-tilt data-tilt-max="12">
+                <div class="profile-inner">
+                    <img src="img/Perfil V1.jpg" alt="Foto de Gabriel Arezi" data-i18n-attr="alt:home.photoAlt">
+                </div>
+                <div class="profile-tag"><i class="bx bx-terminal"></i> FullStack Developer</div>
+                <span class="float-chip c1" aria-hidden="true"><i class="fab fa-react"></i></span>
+                <span class="float-chip c2" aria-hidden="true"><i class="fab fa-node-js"></i></span>
+                <span class="float-chip c3" aria-hidden="true"><i class="fab fa-java"></i></span>
+                <span class="float-chip c4" aria-hidden="true"><i class="fas fa-database"></i></span>
+            </div>
+
             <!-- Language Skills Card -->
-            <div class="language-skills">
-                <h3 data-i18n="lang.title">Idiomas</h3>
+            <div class="language-skills" data-tilt data-tilt-max="8">
+                <h3><i class="bx bx-world"></i> <span data-i18n="lang.title">Idiomas</span></h3>
 
                 <div class="language-bar">
                     <span class="lang-name" data-i18n="lang.pt">Português (PT-BR)</span>
@@ -106,6 +133,8 @@
                 </div>
             </div>
         </aside>
+
+        <a href="#sobre-mim" class="scroll-indicator" aria-label="Rolar para baixo" data-i18n-attr="aria-label:home.scroll"></a>
     </section>
 
     <!-- ===== ABOUT ===== -->
@@ -191,7 +220,7 @@
         </section>
     </section>
 
-    <!-- ===== RECOMMENDATIONS ===== -->
+    <!-- ===== RECOMMENDATIONS 
     <section class="recomendacoes" id="recomendacoes">
         <div class="testimonial-container">
             <h2 class="heading" data-i18n-html="recs.heading">Minhas <span>Recomendações</span></h2>
@@ -201,7 +230,7 @@
                 <div class="testimonial-box mySwiper">
                     <div class="testimonial-content swiper-wrapper">
 
-                        <!-- WorkBestGames -->
+                         
                         <div class="testimonial-slide swiper-slide">
                             <img src="img/wbg.png" alt="Logo WorkBestGames">
                             <h3>WorkBestGames</h3>
@@ -212,7 +241,7 @@
                             <a href="https://github.com/RafaelTuber" target="_blank" rel="noopener noreferrer"><i class="bx bxl-github"></i> GitHub</a>
                         </div>
 
-                        <!-- It Soluções Digitais -->
+                        
                         <div class="testimonial-slide swiper-slide">
                             <img src="img/itstd.png" alt="Logo It Soluções Digitais">
                             <h3>It Soluções Digitais</h3>
@@ -238,6 +267,7 @@
             </div>
         </div>
     </section>
+    ===== -->
 
     <!-- ===== SERVICES ===== -->
     <section class="services" id="services">
@@ -458,6 +488,10 @@
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
+        <a href="#home" class="footer-logo" aria-label="Gabriel Arezi">
+            <img class="logo-dark" src="img/Logo - Letra Branca V2.png" alt="Logo Gabriel Arezi">
+            <img class="logo-light" src="img/Logo - Letra Preta V1.png" alt="" aria-hidden="true">
+        </a>
         <div class="footer-text">
             <p>&copy; <a href="https://www.linkedin.com/in/gabriel-arezi/" target="_blank" rel="noopener noreferrer">Gabriel Arezi</a> | <span data-i18n="footer.rights">Todos os Direitos Reservados.</span></p>
         </div>
@@ -493,12 +527,13 @@
     </div>
 
     <!-- External Scripts -->
-    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/mobile.js"></script>
     <script src="js/theme-mode.js"></script>
     <script src="js/translate.js"></script>
+    <script src="js/effects.js"></script>
 
 </body>
 </html>

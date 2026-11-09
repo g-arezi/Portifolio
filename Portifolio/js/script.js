@@ -109,19 +109,28 @@ if (prevBtn && swiper) prevBtn.addEventListener('click', () => swiper.slidePrev(
 if (nextBtn && swiper) nextBtn.addEventListener('click', () => swiper.slideNext());
 
 /* ============================================================
-   SCROLL REVEAL
+   COMPLEMENT SKILLS – infinite marquee
+   Cloned here (before translate.js runs) so the clones capture the
+   original Portuguese text and keep translating correctly.
    ============================================================ */
-if (typeof ScrollReveal !== 'undefined') {
-    try {
-        ScrollReveal({ distance: '80px', duration: 2000, delay: 200, scale: 0.95 });
-        ScrollReveal().reveal('.home-content, .heading',                                { origin: 'top' });
-        ScrollReveal().reveal('.home-panel, .services-container, .testimonial-wrapper', { origin: 'bottom' });
-        ScrollReveal().reveal('.home-content h1',                                       { origin: 'left' });
-        ScrollReveal().reveal('.home-eyebrow, .home-content p, .about-content',         { origin: 'right' });
-    } catch (err) {
-        console.warn('ScrollReveal initialization failed:', err);
-    }
-}
+(function setupMarquee() {
+    const list = document.querySelector('.complement-skills');
+    if (!list || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    Array.from(list.children).forEach(item => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        list.appendChild(clone);
+    });
+
+    const mask = document.createElement('div');
+    mask.className = 'marquee-mask';
+    list.parentNode.insertBefore(mask, list);
+    mask.appendChild(list);
+    list.classList.add('marquee');
+})();
+
+/* Scroll reveal, 3D tilt and the Three.js background live in js/effects.js */
 
 /* ============================================================
    GITHUB PROJECTS
